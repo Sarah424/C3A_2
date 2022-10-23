@@ -1,0 +1,57 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Oct 24, 2022, 12:57:24 AM
+    Author     : Sara_
+*/
+
+.navbar {
+    background-color: rgb(241, 246, 249);
+}
+
+* {
+    margin: 0px;
+}
+
+.logo {
+    margin-left: 30px;
+}
+
+.list {
+    position: fixed;
+    right: 350px;
+    padding-top: 15px;
+}
+
+.account {
+    position: fixed;
+    right: -30px;
+}
+
+div {
+    display: inline-block;
+    width: 300px;
+}
+
+li, a {
+    text-decoration: none;
+    color: black;
+}
+
+.project-name {
+    color: rgb(64, 104, 130);
+    position: fixed;
+    top: 20px;
+    left: 85px;
+}
+    
+li {
+    display: inline;
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
