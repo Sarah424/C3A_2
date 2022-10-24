@@ -13,6 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 * {
     margin: 0px;
+    font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif
 }
 
 .logo {
@@ -21,8 +22,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 .list {
     position: fixed;
-    right: 350px;
+    right: 250px;
     padding-top: 15px;
+    font-size: 13pt;
+}
+
+.departures {
+    font-weight: bold;
 }
 
 .account {
@@ -43,8 +49,9 @@ li, a {
 .project-name {
     color: rgb(64, 104, 130);
     position: fixed;
-    top: 20px;
-    left: 85px;
+    top: 15px;
+    left: 100px;
+    font-size: 20px;
 }
 
 li {
@@ -55,7 +62,6 @@ li {
 ul {
     list-style-type: none;
 }
-
 
 .dropdown-content {
     display: none;
@@ -90,5 +96,60 @@ ul {
 }
 
 .dropdown:hover .dropbtn {
-    background-color:  rgb(241, 246, 249);
+    background-color: rgb(241, 246, 249);
+}
+
+table, th, td {
+    border: 1.5px solid rgb(185, 185, 185);
+    text-align: center;
+    border-collapse: collapse;
+    width: 1400px;
+    font-size: 12pt;
+}
+
+h1 {
+    color: rgb(64, 104, 130);
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.319);
+    margin: 30px;
+}
+
+.departures {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-from {
+    margin: 0 auto;
+}
+
+.search-from, .search-to {
+    width: 30%;
+    display: inline-block;
+    border: 2px solid rgb(203, 212, 230);
+    height: 30px;
+    font-size: 12pt;
+    border-radius: 3px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.319);
+}
+
+.search-from:focus, .search-to:focus {
+    outline: none;
+    border-color: rgb(151, 159, 175);
+}
+
+.searchDiv {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.searchbtn {
+    border-radius: 3px;
+    height: 37px;
+    background-color: rgb(64, 104, 130);
+    border-color: rgb(64, 104, 130);
+    color: white;
+    text-align: center;
+    font-size: 12pt;
 }
