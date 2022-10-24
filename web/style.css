@@ -46,7 +46,7 @@ li, a {
     top: 20px;
     left: 85px;
 }
-    
+
 li {
     display: inline;
     padding: 20px;
@@ -54,4 +54,41 @@ li {
 
 ul {
     list-style-type: none;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: 1410px;
+    width: 85px;
+    top: 45px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropbtn {
+    position: relative;
+    left: 1100px;
+    bottom: 5px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color:  rgb(241, 246, 249);
 }
