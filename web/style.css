@@ -27,7 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     font-size: 13pt;
 }
 
-.departures {
+.departures, .trips {
     font-weight: bold;
 }
 
@@ -81,7 +81,7 @@ ul {
     display: block;
 }
 
-.dropbtn {
+.dropBtn {
     position: relative;
     left: 1100px;
     bottom: 5px;
@@ -95,7 +95,7 @@ ul {
     display: block;
 }
 
-.dropdown:hover .dropbtn {
+.dropdown:hover .dropBtn {
     background-color: rgb(241, 246, 249);
 }
 
@@ -113,7 +113,7 @@ h1 {
     margin: 30px;
 }
 
-.departures {
+.departuresTable {
     margin-left: auto;
     margin-right: auto;
 }
@@ -144,12 +144,43 @@ h1 {
     margin-bottom: 30px;
 }
 
-.searchbtn {
+.searchBtn, .addBtn, .updateBtn, .deleteBtn{
     border-radius: 3px;
     height: 37px;
-    background-color: rgb(64, 104, 130);
-    border-color: rgb(64, 104, 130);
+    border-color: rgba(0, 0, 0, 0);
     color: white;
     text-align: center;
     font-size: 12pt;
+    width: 100px;
 }
+
+.searchBtn {
+    background-color: rgb(64, 104, 130);
+}
+
+.searchBtn:hover {
+    background-color: rgb(51,83,104);
+}
+
+.addBtn, .updateBtn{
+    background-color: rgb(105,152,171);
+}
+
+.updateBtn:hover, .addBtn:hover{
+    background-color: rgb(84,121,136);
+}
+
+.deleteBtn {
+    background-color: rgb(237,83,83);
+}
+
+.deleteBtn:hover {
+    background-color: rgb(189,66,66);
+}
+
+.alterTrips{
+    position: absolute;
+    left: 82%;
+    margin-top: 20px;
+}
+
