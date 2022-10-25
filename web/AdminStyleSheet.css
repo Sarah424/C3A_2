@@ -6,23 +6,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : Oct 24, 2022, 12:57:24 AM
     Author     : Sara_
 */
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : Oct 24, 2022, 12:57:24 AM
-    Author     : Sara_
-*/
-
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : Oct 24, 2022, 12:57:24 AM
-    Author     : Sara_
-*/
 
 .navbar {
     background-color: rgb(241, 246, 249);
@@ -161,7 +144,7 @@ h1 {
     margin-bottom: 30px;
 }
 
-.searchBtn, .addBtn, .updateBtn, .deleteBtn, .cancleBtn, .add-tripBtn, .update-tripBtn {
+.searchBtn, .addBtn, .updateBtn, .deleteBtn, .cancleBtn, .add-tripBtn, .update-tripBtn, .loginBtn {
     border-radius: 3px;
     height: 37px;
     border-color: rgba(0, 0, 0, 0);
@@ -179,11 +162,11 @@ h1 {
     background-color: rgb(51, 83, 104);
 }
 
-.addBtn, .updateBtn, .add-tripBtn, .update-tripBtn {
+.addBtn, .updateBtn, .add-tripBtn, .update-tripBtn, .loginBtn {
     background-color: rgb(105, 152, 171);
 }
 
-.updateBtn:hover, .addBtn:hover, .add-tripBtn:hover, .update-tripBtn:hover {
+.updateBtn:hover, .addBtn:hover, .add-tripBtn:hover, .update-tripBtn:hover, .loginBtn:hover {
     background-color: rgb(84, 121, 136);
 }
 
@@ -295,4 +278,59 @@ hr {
 .cancleBtn {
     position: absolute;
     left: 50px;
+}
+
+.background {
+    width: 50%;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+}
+
+.LoginBody {
+    background-color: rgb(241, 246, 249);
+    height: 100%;
+}
+
+.systemName {
+    margin-left: 4%;
+}
+
+.logoLogin {
+    margin-left: 20%;
+    display: block;
+}
+
+.id, .password {
+    margin-left: 19%;
+    margin-top: 2%;
+
+}
+
+.idInput, .passwordInput {
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border-width: 1px;
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: large;
+}
+
+.idInput::placeholder, .passwordInput::placeholder {
+    color: rgb(168, 168, 168);
+    font-size: large;
+    padding-left: 4px;
+}
+
+.idLabel, .passwordLabel {
+    font-size: 16pt;
+}
+
+.loginBtn {
+    position: absolute;
+    left: 20%;
+    margin-top: 40px;
+    height: 6%;
+    font-size: 14pt;
 }
