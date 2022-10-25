@@ -12,7 +12,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="AdminStyleSheet.css">
         <title>Home Page</title>
     </head>
 
@@ -24,7 +24,6 @@
             </div>
             <div class="list">
                 <ul>
-                    <!-- href = jsp file -->
                     <li> <a href="DeparturesPage.jsp" class="departures">Departures</a></li>
                     <li> <a href="TripPage.jsp">Trips</a></li>
                 </ul>

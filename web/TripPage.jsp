@@ -10,8 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="AdminStyleSheet.css">
+        <title>Trips</title>
     </head>
 
     <body>
@@ -22,7 +22,6 @@
             </div>
             <div class="list">
                 <ul>
-                    <!-- href = jsp file -->
                     <li> <a href="DeparturesPage.jsp">Departures</a></li>
                     <li> <a href="TripPage.jsp" class="trips">Trips</a></li>
                 </ul>
@@ -35,7 +34,7 @@
             </div>
         </nav>
 
-        <h1>Departures</h1>
+        <h1>Trips</h1>
 
         <div class="searchDiv">
             <input type="text" class="search-from" placeholder="From Where?">
