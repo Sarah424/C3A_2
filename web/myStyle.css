@@ -1,0 +1,594 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 30, 2022, 1:35:27 PM
+    Author     : atheer
+
+    /*
+    color-profile PALLETE :
+#1A374D
+#406882
+#6998AB
+#B1D0E0
+
+
+CENTER
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+*/
+
+body {
+    background-image: url("blueBG.png");
+    background-size: cover; /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+    font-family: 'Open Sans';
+}
+
+    /*------HEADER----------------------------------------------------------------*/
+.header {
+    position: fixed;
+    text-align: center;
+    background: white;
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    display: inline-block;
+    z-index: 3;
+}
+
+    .header .HeaderContainer {
+        position: relative;
+        overflow: hidden;
+        width: 90%;
+        height: 70%;
+        /*background-color: grey;*/
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    /*------LOGO-----------------------------------------*/
+
+    .HeaderContainer #logo {
+        display: inline-block;
+        float: left;
+        height: 40px;
+        left: 2%;
+    }
+
+    .HeaderContainer #systemTitle {
+        display: inline-block;
+        float: left;
+        font-size: 30;
+        font-weight: bold;
+        color: #1A374D;
+        margin-left: 1.5%;
+    }
+
+
+/*------MENU ELEMNT-------*/
+
+.HeaderContainer .loginBtn, .signUpBtn {
+    display: inline-block;
+    position: relative;
+    float: right;
+    width: 10%;
+    color: #1A374D;
+    font-size: 20px;
+    text-decoration: none;
+    top: 50%;
+    right: 5%;
+    margin-right:5px;
+    transform: translateY(-50%);
+    
+}
+
+.HeaderContainer .signUpBtn {
+    border-radius: 50px;
+    border: 1px solid #1A374D;
+}
+
+.HeaderContainer .loginBtn:hover {
+    text-decoration: none;
+    font-weight: bold;
+}
+.HeaderContainer .signUpBtn:hover {
+    border-color: #406882;
+    background-color: #406882;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+.HeaderContainer .userWelcomeMsg {
+    right: 20px;
+    position: relative;
+    float: right;
+    width: 30%;
+    text-align: right;
+    color: #1A374D;
+}
+/*.HeaderContainer .active {
+    color: black;
+    background-color: #A6B6B1;
+    font-weight: bold;
+}*/
+/*------side icons-----------------------------------*/
+.side {
+    float: right;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+}
+
+        .side .btn {
+            position:relative;
+            background-color: white;
+            border: hidden;
+            padding-top: 0px;
+        }
+
+        .header .side a {
+            height: 20px;
+            width: 25px;
+            background-color: white;
+            border: hidden;
+        }
+
+        .side .btn .material-icons {
+            font-size: 30px;
+            color: #1A374D;
+            padding-top: 4px;
+        }
+
+            .side .btn .material-icons:hover {
+                background-color: white;
+                font-size: 32px;
+                color: black;
+            }
+
+
+/*-------------------BODY components---------------------*/
+
+
+/* body container */
+.bodyDiv {
+    position: relative;
+    width: 70%;
+    height: auto;
+   /* background-color: gray;*/
+    object-fit: contain;
+    display: block;
+    padding-top:80px;
+    margin-top: 15%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-15%);
+}
+
+/* Trip info Large box/container */
+    .bodyDiv .tripContainer {
+        position: relative;
+        width: 90%;
+        height: 250px;
+        background: rgba(182, 195, 205, 0.51);
+        /*backdrop-filter: blur(1px);*/
+        border-radius: 35px;
+        margin-top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        object-fit: contain;
+        overflow:hidden;
+    }
+
+/*________________TRIP WAY __________________ */
+.tripContainer .tripWay {
+    position: relative;
+    width:190px;
+    height: 40px;
+    background: #1A374D;
+    border-radius: 35px;
+    margin-top: 18px;
+    left: 3%;
+    bottom: 0;
+    display:inline-block;
+    object-fit:contain;
+    overflow:clip;
+}
+.tripWay p {
+    position: relative;
+    font-size: 19px;
+    color: white;
+    top: 50%;
+    font-weight: bold;
+    transform: translateY(-50%);
+    text-align: left;
+    display: inline-block;
+}
+
+.tripWay .material-icons {
+    position: relative;
+    font-size: 18px;
+    color: white;
+    top: 15%;
+    display: inline-block;
+}
+.tripWay #tripFrom {
+    position: relative;
+    color: white;
+    margin-left:18px;
+    margin-top:0px;
+    text-align:left;
+}
+
+.tripWay #tripTo {
+    position: relative;
+    color: white;
+    margin-left: 1px;
+    margin-top: 0px;
+    text-align: left;
+}
+
+
+
+/*-------------------TRIP INFOS : TIME/DATE/PRICE-------------------*/
+
+
+    /*Trip Info Boxes middle CONTAINER*/
+    .tripContainer .tripInfo {
+        position: relative;
+        width: 90%;
+        height: 48%;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        /*background-color: gray;*/
+        display: inline-block;
+        object-fit: contain;
+    }
+
+    /*Trip Info Boxes : leave, arrive, date & price*/
+    .infoBox {
+        position: relative;
+        display: inline-block;
+        height: 100%;
+        width: 20%;
+        padding-left: 4%;
+        position: relative;
+        background-color: white;
+        border-radius: 18px;
+        overflow: hidden;
+
+    }
+
+    /*________________Trip INFO & TEXT__________________*/
+        .infoBox .infoMiniTitle {
+            position: relative;
+            font-weight: bold;
+            font-size: 15px;
+            text-align: left;
+            color: #406882;
+            display: inline-block;
+            margin: 0;
+            top: 10px;
+        }
+
+    .infoBox p {
+        color: #1A374D;
+        display: inline-block;
+        top: 20px;
+        margin-right:2px;
+        /*line-height:5px;*/
+    }
+
+    .infoBox #Tdate, #Tprice {
+        position: relative;
+        margin-top: 2px;
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 0px;
+    }
+
+    .infoBox #l_time, #a_time, #Tdate, #Tprice {
+        position: relative;
+        margin-top: 2px;
+        font-size: 26px;
+        font-weight: bold;
+        margin-left: 0px;
+    }
+
+    .infoBox #l_APM, #a_APM, #sar {
+        position: relative;
+        top:-20%;
+        display: block;
+    }
+
+/*---------- BUISNEES / ECONOMY BTNS-----------*/
+.tripContainer .be_btns {
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    bottom: 0;
+    left: 0;
+    overflow:hidden;
+}
+
+.be_button {
+    position: sticky;
+    font-size: 20px;
+    color: white;
+    display: inline-block;
+    width: 49.677%;
+    margin-right: 0px;
+    margin-left: 0px;
+    height: 100%;
+    border: 0px;
+    outline: none;
+    background-color: rgba(157,171,182, 0.7);
+    backdrop-filter: blur(0.3px);
+}
+
+    .be_button:hover {
+        font-weight: bold;
+        color: #1A374D;
+        outline: none;
+        background-color: rgba(255,255,255, 0.53);
+        backdrop-filter: blur(1px);
+    }
+
+/*-----NAV BTNS-----*/
+.bodyDiv .navBtns {
+    position: relative;
+    width: 90%;
+    height: 36px;
+    /*background-color: gray;*/
+    object-fit: contain;
+    display: inline-block;
+    margin-top: 7%;
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+
+.navBtns .back_button {
+    position: relative;
+    width: 100px;
+    height: 100%;
+    margin-left: 0px;
+    border: 0px;
+    outline: none;
+    background-color: white;
+    border-radius: 18px;
+    font-size: 17px;
+    /*font-weight:bold;*/
+    color:white;
+    background-color: rgba(255,255,255, 0.53);
+    /*backdrop-filter: blur(1px);*/
+    text-align: left;
+    vertical-align: middle;
+}
+.back_button .material-icons {
+    color: white;
+    position: relative;
+    margin-left: 10px;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.navBtns .next_button {
+    position: absolute;
+    width: 190px;
+    height: 100%;
+    border: 0px;
+    outline: none;
+    background-color: rgba(255,255,255, 0.53);
+    border-radius: 18px;
+    font-size: 17px;
+    /*font-weight:bold;*/
+    color: white;
+    text-align: left;
+    vertical-align: middle;
+    padding-top: 0px;
+    right: 0;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.next_button .material-icons {
+    color: white;
+    position: absolute;
+    right:0;
+    margin-left: 10px;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.next_button:hover, .back_button:hover {
+    color: #1A374D;
+    background-color: white;
+    outline: none;
+    background-color: rgba(255,255,255,0.7);
+}
+
+
+/*--------------------TICKET HIRSTORY--------------------------------------*/
+/*
+    color-profile PALLETE :
+#1A374D
+#406882
+#6998AB
+#B1D0E0
+
+
+      CENTER
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+*/
+
+.THbodyDiv {
+    position: relative;
+    width: 85%;
+    height: auto;
+    /* background-color: gray;*/
+    object-fit: contain;
+    display: block;
+    padding-top: 0px;
+    margin-top: 15%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-15%);
+}
+
+
+/*container */
+.THbodyDiv .TicketHistoryCont {
+    position: relative;
+    width: 90%;
+    height: auto;
+    background: rgba(182, 195, 205, 0.51);
+    /*backdrop-filter: blur(1px);*/
+    border-radius: 35px;
+    margin-top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: contain;
+    overflow: hidden;
+    padding-bottom:30px;
+}
+
+
+/*---------------Label/Title---------------*/
+.TicketHistoryCont .THLabel {
+    position: relative;
+    width: 190px;
+    height: 40px;
+    background: #1A374D;
+    border-radius: 40px;
+    border-color:white;
+    margin-top: 18px;
+    left: 3%;
+    bottom: 0;
+    display: inline-block;
+    object-fit: contain;
+    overflow: clip;
+}
+.THLabel p {
+    position: relative;
+    font-weight: bold;
+    color: white;
+    font-size: 22px;
+    top: 0%;
+    left:20px;
+    transform:  translateY(-60%);
+}
+
+/*---------------BACK BTN---------------*/
+
+.THnav {
+    position: relative;
+    width: 90%;
+    height: 36px;
+    /*background-color: gray;*/
+    object-fit: contain;
+    display: inline-block;
+    margin-top: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+    .THnav .THback_btn {
+        position: relative;
+        width: 100px;
+        height: 100%;
+        margin-left: 0px;
+        border: 0px;
+        border-radius: 18px;
+        border: 1px solid white;
+        font-size: 17px;
+        color: white;
+        background-color: #6998AB;
+        text-align: left;
+        vertical-align: middle;
+    }
+.THback_btn .material-icons {
+    color: white;
+    position: relative;
+    margin-left: 10px;
+    top: 50%;
+    transform: translateX(-50%) translateY(-44%);
+}
+.THback_btn:hover{
+    color: #1A374D;
+    background-color: white;
+    outline: none;
+    background-color: rgba(255,255,255,0.7);
+}
+
+/*------------------TABLE OF TH-----------------------------*/
+/*.TicketHistoryCont .TableCont {
+    height:auto;
+    background-color:green;
+    width:100%;
+    overflow:hidden;
+}*/
+.TicketHistoryCont .TH_table {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-spacing: 0;
+    border-collapse: separate;
+    border-bottom: solid white 2px;
+    border-top: solid white 2px;
+}
+
+.TH_table .THT_header {
+    position: relative;
+    height: 50px;
+    background: #406882;
+    color: white;
+}
+
+.THT_header th {
+    width: 24.5%;
+    border-bottom: solid white 1px;
+    font-size:20px;
+}    
+/*    .THT_header th:first-child th:last-child {
+        border-radius:30px;
+        border-left: solid black 1px;
+        border-top: solid black 1px;
+    }*/
+
+/*.TH_table .THT_content {
+    position: relative;
+    height: 30px;
+    border-bottom: solid white 1px;
+}
+*/
+.TH_table .THT_content{
+    height:30px;
+}
+.THT_content td {
+    height: 30px;
+    width: 24.5%;
+    font-size: 16px;
+    padding-left: 15px;
+    border-bottom: solid white 1px;
+    background-color: rgba(255,255,255, 0.33);
+}
+
+
+
+
+
