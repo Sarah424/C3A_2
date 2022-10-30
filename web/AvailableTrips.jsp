@@ -21,7 +21,7 @@
     <!-------------------------------------HEADER------------------------------------------->
     <div class="header">
         <div class="HeaderContainer">
-            <img src="trainLogo.png" title="RailWay Logo" alt="logo" id="logo" />
+            <img src="images/trainLogo.png" title="RailWay Logo" alt="logo" id="logo" />
             <p id="systemTitle">Railway Booking System</p>
 
 
@@ -99,56 +99,6 @@
         <!---------Trip END-------->        
     
     
-        <!---------------------Trip-->
-        <div class="tripContainer">
-
-            <!------From To------>
-            <div class="tripWay">
-                <p id="tripFrom">Jeddah</p>
-                <i class="material-icons">arrow_forward</i>
-                <p id="tripTo">Riyadh</p>
-            </div>
-
-            <!------Info Boxes------>
-            <div class="tripInfo">
-                <div class="infoBox">
-                    <!--leaving time-->
-                    <p class="infoMiniTitle">Leaving</p> <br />
-
-                    <p id="l_time">10:05</p>
-                    <p id="l_APM">AM</p>
-                </div>
-                <div class="infoBox">
-                    <!--arriving time-->
-                    <p class="infoMiniTitle">Arriving</p> <br />
-                    <p id="a_time">10:05</p>
-                    <p id="a_APM">AM</p>
-                </div>
-                <div class="infoBox">
-                    <!--trip date-->
-                    <p class="infoMiniTitle">Date</p><br />
-                    <p id="Tdate">12 OCT 2022</p>
-                </div>
-                <div class="infoBox">
-                    <!--trip price-->
-                    <p class="infoMiniTitle">Price</p><br />
-                    <p id="Tprice">120.99</p>
-                    <p id="sar">SAR</p>
-                </div>
-
-            </div>
-
-            <!------BOTTOM BTNS------>
-            <div class="be_btns">
-
-                <button class="be_button" id="bus_btn">Business</button>
-                <button class="be_button" id="eco_btn">Economy</button>
-            </div>
-
-
-        </div>
-        <!---------Trip END-------->
-
         <!--NAV BTNS-->
         <div class="navBtns">
             <button class="back_button" id="back_btn"><i class="material-icons">chevron_left</i>Back</p></button>

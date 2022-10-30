@@ -21,7 +21,7 @@
     <!-------------------------------------HEADER------------------------------------------->
     <div class="header">
         <div class="HeaderContainer">
-            <img src="trainLogo.png" title="RailWay Logo" alt="logo" id="logo" />
+            <img src="images/trainLogo.png" title="RailWay Logo" alt="logo" id="logo" />
             <p id="systemTitle">Railway Booking System</p>
 
 
