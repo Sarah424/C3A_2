@@ -14,6 +14,22 @@
         <title>Login</title>
     </head>
     <body class="LoginBody">
+
+        <%
+            try {
+            if (request.getParameter("error").equals("1") || request.getParameter("error").equals("3")){
+            
+        %>
+        <script>alert("Username or password is invalid");</script>
+        <%
+            } else if(request.getParameter("error").equals("2")){
+%>
+        <script>alert("Account is not registered");</script>
+        <%
+}
+        }catch(NullPointerException ex ){
+        }
+        %>
         <span>
             <img src="images/background.png" alt="background image" class="background">
         </span>
@@ -21,11 +37,11 @@
         <img class="logoLogin" src="images/logo.png" alt="System Logo" width="130" height="130">
         <h1 class="systemName">Railway Booking Administration System</h1>
 
-        <form action="" method="POST">
+        <form action="AdminOTP.jsp" method="POST">
             <div class="id">
-                <label class="idLabel" for="id">ID</label>
+                <label class="idLabel" for="id">Username</label>
                 <br>
-                <input class="idInput" type="text" name="ID" placeholder="Enter Your ID">
+                <input class="idInput" type="text" name="username" placeholder="Enter Your Username">
             </div>
             <br>
             <br>
