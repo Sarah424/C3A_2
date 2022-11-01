@@ -33,7 +33,7 @@ public class database_conn {
         }
     }
     
-    //add new user
+    //--------------------add new user
         public int addUser(String id,String f_name,String l_name,String email,String phone ,String bdate) {// insert new user (6 parameters)
         int r = 0 ; 
         sqlQuery = "insert into **users** (id,first_name,last_name,dateOfBirth,phone,email) values('"+id+"','" + f_name + "','" + l_name +  "' ,'"+ bdate +"','"+ phone +"');";
@@ -50,7 +50,7 @@ public class database_conn {
     }
     
         
-        //get user tickets history
+        //---------------------get user tickets history
         public ResultSet getUserTicketHistory(String user_id) {// insert new user (6 parameters)
         //int r = 0 ; 
         sqlQuery = "select * from **tickets** where user_id= '"+user_id+"';";
@@ -67,7 +67,7 @@ public class database_conn {
     }
         
         
-        //search for available trips 
+        //------------------------search for available trips 
         public ResultSet getTrips(String from, String to , String date , int seat_no) {
         sqlQuery = "SELECT * FROM **trips** WHERE from= '" +from + "'AND to '" +to + "' AND tripDate'" +date+ "' AND seatsAvailable>= "+seat_no+";";
         try{
@@ -81,7 +81,7 @@ public class database_conn {
         return resultSet;
     }
         
-        //add trip
+        //-------------------------add trip
         public ResultSet addTrips(String from, String to , String date ,String time, int available_seat_no) {
         sqlQuery = "insert into **trips**(from,to,date,time,seatsAvailable) values('"+from+"','"+to+"','"+date+"','"+time+"',"+available_seat_no+");";
         try{
