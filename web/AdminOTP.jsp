@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="Account.Admin"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,6 +18,35 @@
     </head>
 
     <body class="LoginBody">
+
+        <%
+                 
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+       if (username.matches("[a-zA-Z.]+")) {
+            String sub = username.substring(0, 2);
+            if (sub.indexOf(".") != 1) {
+              response.sendRedirect("AdminLoginPage.jsp?error=1");
+            }
+        }
+
+        Database.SignupController loginControl = new Database.SignupController();
+
+        try {
+        if (!loginControl.isAdmin(username)) {
+            response.sendRedirect("AdminLoginPage.jsp?error=2");
+        } else if (!loginControl.isValidAdmin(username, password)) {
+            response.sendRedirect("AdminLoginPage.jsp?error=3");
+        }
+            } catch(IllegalStateException ex ){
+            }
+            
+              //  session.setAttribute("adminUsername", username);
+              //  session.setAttribute("adminPassword", password);
+                loginControl.sendOTP(loginControl.getAdminEmail(username));
+        %>
+
+
         <span>
             <img src="images/background.png" alt="background image" class="background">
         </span>
