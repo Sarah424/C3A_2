@@ -3,7 +3,7 @@
     Created on : Oct 30, 2022, 1:36:27 PM
     Author     : atheer
 --%>
-
+<%@ page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -45,7 +45,11 @@
 
     <!-------------------------------Page Components-------------------------------->
     <div class="THbodyDiv">
-
+<%
+session.setAttribute("id", "1");
+//session.getAttribute("id")
+//String id= "1";
+%>
 
         <div class="THnav">
             <button class="THback_btn" id="back_btn"><i class="material-icons">chevron_left</i>Back</p></button>
@@ -65,50 +69,30 @@
                         <th>Time</th>
                         <th>Options</th>
                     </tr>
-                    <!--Ticket INFOOOO-----------------<<-->
+                    <!--Ticket INFOOOO------------------>
+                    <%
+                    if(session.getAttribute("id") != null ){
+                    dbConn.database_conn sql_Handler = new dbConn.database_conn();// conn (folder_name.java_class_name) 
+                    ResultSet rsltst = sql_Handler.getUserTicketHistory(session.getAttribute("id").toString());//result obj (to get my method, my vars from db are stored in this obj)
+                    
+                    //get users booked tickets
+                    while(rsltst.next()){
+                    %>
                     <tr class="THT_content">
-                        <td id="trip">Trip</td>
-                        <td id="date">Date</td>
-                        <td id="time">Time</td>
+                        <td id="trip">from <%=rsltst.getString("from") %>, to : <%=rsltst.getString("to") %></td>
+                        <td id="date"><%=rsltst.getString("date") %></td>
+                        <td id="time"><%=rsltst.getString("time") %></td>
                         <td id="options">
                             <p>Btns/href here!!</p>
                             <!--two a href-->
                         </td>
                     </tr>
+                    <%
+                    }
+                    rsltst.close();
+                    %>
                     <!---------------------------------<<-->
-                    <!--Ticket INFOOOO-----------------<<-->
-                    <tr class="THT_content">
-                        <td id="trip">Trip</td>
-                        <td id="date">Date</td>
-                        <td id="time">Time</td>
-                        <td id="options">
-                            <p>Btns/href here!!</p>
-                            <!--two a href-->
-                        </td>
-                    </tr>
-                    <!---------------------------------<<-->
-                    <!--Ticket INFOOOO-----------------<<-->
-                    <tr class="THT_content">
-                        <td id="trip">Trip</td>
-                        <td id="date">Date</td>
-                        <td id="time">Time</td>
-                        <td id="options">
-                            <p>Btns/href here!!</p>
-                            <!--two a href-->
-                        </td>
-                    </tr>
-                    <!---------------------------------<<--><!--Ticket INFOOOO-----------------<<-->
-                    <tr class="THT_content">
-                        <td id="trip">Trip</td>
-                        <td id="date">Date</td>
-                        <td id="time">Time</td>
-                        <td id="options">
-                            <p>Btns/href here!!</p>
-                            <!--two a href-->
-                        </td>
-                    </tr>
-                    <!---------------------------------<<-->
-
+                    
                 </table>
             </div>
 

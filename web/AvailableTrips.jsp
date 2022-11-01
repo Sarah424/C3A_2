@@ -48,6 +48,15 @@
     <!-------------------------------Page Components-------------------------------->
     <div class="bodyDiv">
 
+        
+        <!--
+        get the  paramaters of the trips the user wants
+        search using getTrip() function from dbConn
+        get the result set 
+        show the resultset in while.hasNext loop 
+        and show tripCont and info (html) in each loop(trip)
+        set the bus/eco btns to the trip id
+        ->
         <!---------------------Trip-->
         <div class="tripContainer">
 

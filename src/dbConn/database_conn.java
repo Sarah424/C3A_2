@@ -1,5 +1,5 @@
+package dbConn;
 
-import database_connect.dbConn;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,12 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -33,10 +27,9 @@ public class database_conn {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(url,username,password);
-            
         }catch(SQLException e){
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(dbConn.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(database_conn.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -54,6 +47,23 @@ public class database_conn {
             e.printStackTrace();
         }
         return r;
+    }
+    
+        
+        //get user tickets history
+        public ResultSet getUserTicketHistory(String user_id) {// insert new user (6 parameters)
+        //int r = 0 ; 
+        sqlQuery = "select * from **tickets** where user_id= '"+user_id+"';";
+        try{
+            preparedStmt = conn.prepareStatement(sqlQuery);
+            resultSet = preparedStmt.executeQuery();//r is the number of records inserted
+            System.out.println("succeed in getting user's tickets");
+        }
+        catch(Exception e){
+            System.out.println("error in getting user's tickets");
+            e.printStackTrace();
+        }
+        return resultSet;
     }
         
         
