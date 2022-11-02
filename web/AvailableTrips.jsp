@@ -4,6 +4,7 @@
     Author     : atheer
 --%>
 
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -57,6 +58,16 @@
         and show tripCont and info (html) in each loop(trip)
         set the bus/eco btns to the trip id
         ->
+        <%
+            //resultSet.getString("username")
+        String from ="";
+        String to="";
+        String date ="";
+        int seat_no=0;
+        dbConn.database_conn sql_Handler = new dbConn.database_conn();
+        ResultSet res_set = sql_Handler.getTrips( from,  to ,  date ,  seat_no);
+        while(res_set.next()){
+        %>
         <!---------------------Trip-->
         <div class="tripContainer">
 
@@ -73,8 +84,8 @@
                     <!--leaving time-->
                     <p class="infoMiniTitle">Leaving</p> <br />
 
-                    <p id="l_time">10:05</p>
-                    <p id="l_APM">AM</p>
+                    <p id="l_time">10:05<%res_set.getString("time")%> </p>
+                    <!--<p id="l_APM">AM</p>-->
                 </div>
                 <div class="infoBox">
                     <!--arriving time-->
@@ -99,14 +110,16 @@
             <!------BOTTOM BTNS------>
             <div class="be_btns">
 
-                <button class="be_button" id="bus_btn">Business</button>
-                <button class="be_button" id="eco_btn">Economy</button>
+                <button class="be_button" id="${trip.getID()}">Business</button>
+                <button class="be_button" id="<% %>">Economy</button>
             </div>
 
 
         </div>
         <!---------Trip END-------->        
-    
+        <%
+            }
+        %>
     
         <!--NAV BTNS-->
         <div class="navBtns">
