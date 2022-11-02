@@ -47,6 +47,23 @@ public class database_conn {
         }
         return resultSet;
     }
+      
+        //---------------------get user tickets history
+        
+        public ResultSet getUserTicketHistory(String user_id) {// insert new user (6 parameters)
+        //int r = 0 ; 
+        sqlQuery = "select * from TRIP where User_id= '"+user_id+"';";
+        try{
+            preparedStmt = conn.prepareStatement(sqlQuery);
+            resultSet = preparedStmt.executeQuery();//r is the number of records inserted
+            System.out.println("succeed in getting user's tickets");
+        }
+        catch(Exception e){
+            System.out.println("error in getting user's tickets");
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
         
         
         
@@ -99,22 +116,6 @@ public class database_conn {
 //    }
 //    
         
-        //---------------------get user tickets history
-        
-//        public ResultSet getUserTicketHistory(String user_id) {// insert new user (6 parameters)
-//        //int r = 0 ; 
-//        sqlQuery = "select * from **tickets** where user_id= '"+user_id+"';";
-//        try{
-//            preparedStmt = conn.prepareStatement(sqlQuery);
-//            resultSet = preparedStmt.executeQuery();//r is the number of records inserted
-//            System.out.println("succeed in getting user's tickets");
-//        }
-//        catch(Exception e){
-//            System.out.println("error in getting user's tickets");
-//            e.printStackTrace();
-//        }
-//        return resultSet;
-//    }
-        
+
    
 }

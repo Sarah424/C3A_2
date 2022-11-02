@@ -333,7 +333,7 @@ body {
     font-size: 20px;
     color: white;
     display: inline-block;
-    width: 49.677%;
+    width: 100%;
     margin-right: 0px;
     margin-left: 0px;
     height: 100%;
@@ -341,14 +341,15 @@ body {
     outline: none;
     background-color: rgba(157,171,182, 0.7);
     backdrop-filter: blur(0.3px);
+    border-radius: 0px 0px 30px 30px;
 }
-#bus_btn{
+/*#bus_btn{
     border-radius: 0px 0px 0px 30px;
 }
 
 #eco_btn{
     border-radius: 0px 0px 30px 0px;
-}
+}*/
 
     .be_button:hover {
         font-weight: bold;

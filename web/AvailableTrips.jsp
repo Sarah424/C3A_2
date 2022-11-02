@@ -19,6 +19,15 @@
     <title>Available Trips</title>
 
 </head>
+   <%
+        //resultSet.getString("username")
+        String from ="jeddah";
+        String to="riyadh";
+        //String date ="2022-10-10 15:14:23";
+        //int seat_no=0;
+        dbConn.database_conn sql_Handler = new dbConn.database_conn();
+        ResultSet res_set = sql_Handler.getTrips(from,to);
+        %>
 <body>
      
         <!--
@@ -30,15 +39,7 @@
         set the bus/eco btns to the trip id
         ->
         
-    <%
-        //resultSet.getString("username")
-        String from ="jeddah";
-        String to="riyadh";
-        //String date ="2022-10-10 15:14:23";
-        //int seat_no=0;
-        dbConn.database_conn sql_Handler = new dbConn.database_conn();
-        ResultSet res_set = sql_Handler.getTrips(from,to);
-        %>
+ 
     <!-------------------------------------HEADER------------------------------------------->
     <div class="header">
         <div class="HeaderContainer">
@@ -72,8 +73,6 @@
        
         <%
         while(res_set.next()){
-        //<%= res_set.getString("Departure_station")
-        //<%= res_set.getString("Arrival_station")
         %>
         <!---------------------Trip-->
         <div class="tripContainer">
@@ -103,12 +102,12 @@
                 <div class="infoBox">
                     <!--trip date-->
                     <p class="infoMiniTitle">Date</p><br />
-                    <p id="Tdate"></p>
+                    <p id="Tdate"><%= res_set.getString("date")%></p>
                 </div>
                 <div class="infoBox">
                     <!--trip price-->
                     <p class="infoMiniTitle">Price</p><br />
-                    <p id="Tprice"></p>
+                    <p id="Tprice"><%= res_set.getInt("Price")%></p>
                     <p id="sar">SAR</p>
                 </div>
 
@@ -116,9 +115,7 @@
 
             <!------BOTTOM BTNS------>
             <div class="be_btns">
-
-                <button class="be_button" id="">Business</button>
-                <button class="be_button" id="">Economy</button>
+                <button class="be_button" id="<%= res_set.getInt("id")%>">Select</button>
             </div>
 
 
