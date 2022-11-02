@@ -1,0 +1,776 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 2, 2022, 9:59:45 PM
+    Author     : Sara
+*/
+    .myDiv {
+  border: 5px outset red;
+  background-color: lightblue;    
+  text-align: center;
+}
+   hr.solid {
+  border-top: 3px solid rgba(177, 208, 224, 0.8);
+  margin-right: 60px;
+  width: 1240px;
+  
+}
+.advatages{
+    
+}
+
+footer{
+    background-color: rgba(217, 217, 217, 0.1);
+    color: #406882;
+    margin: 0;
+}
+
+    ​.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.system-name {
+    color: rgb(64, 104, 130);
+    position: absolute;
+    top: 24px;
+    left: 100px;
+    font-size: 20px;
+} 
+
+
+.homepage-navbar {
+    background-color: rgb(241, 246, 249);
+    width: 100%;
+} 
+
+
+.user-first, .user-second, .user-third, .user-fourth {
+    background-color: rgba(177, 208, 224, 0.8);
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid rgba(177, 208, 224, 0.8);
+    border-color: rgba(177, 208, 224, 0.8);
+    text-align: center;
+    font-size: 13pt;
+    
+}
+
+.user-first{
+    margin-left: 25px;
+}
+
+ .digits{
+    color: #6998AB;
+   
+}
+        div.register-div{
+            border-radius: 5px;
+  padding-top: 20px;
+  display: inline;
+  
+  
+        }
+        div.register-div h1{
+    text-align: center;
+    color:#1A374D;
+            
+        }
+
+        form.register-form{
+            display: table;
+    margin: 0 auto;
+        }
+.register-submit{
+   float: right;
+   color: white;
+   border-radius: 10px;
+   border: 1px solid rgba(26, 55, 77, 0.8);
+   background-color: rgba(26, 55, 77, 0.8);
+    padding: 10px 32px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-submit:hover{
+  float: right;
+   color: rgb(26, 55, 77);
+   border-radius: 10px;
+   border: 1px solid rgba(177, 208, 224, 0.8);
+   background-color: rgba(177, 208, 224, 0.8);
+    padding: 10px 32px;
+    font-size: 16px;
+    cursor: pointer;  
+}
+
+
+.otp-error{
+    background-color: rgba(255,0,0,0.1);
+    text-align: center;
+    margin-left: 24%;
+  width: 50%;
+  border-radius: 10px;
+  border: 1px solid rgba(255,0,0,0.1);
+  color: rgba(255,0,0,0.7);
+      font-weight:normal;
+}
+.otp-submit{
+   margin-left: 32%;
+   color: white;
+   border-radius: 10px;
+   border: 1px solid rgba(26, 55, 77, 0.8);
+   background-color: rgba(26, 55, 77, 0.8);
+    padding: 10px 32px;
+    font-size: 16px;
+    cursor: pointer; 
+}
+
+.otp-submit:hover{
+    border: 1px solid rgba(84, 121, 136,0.8);
+   
+    background-color: rgba(84, 121, 136,0.8);
+
+
+}
+
+.doctype{
+    padding-right: 100px;
+}
+
+.select-doctype{
+    width: 200px;
+    background-color: rgba(177, 208, 224,0.6);
+    color: rgb(64, 104, 130);
+    
+}
+.select-title{
+  width: 80px;
+    background-color: rgba(177, 208, 224,0.6);
+    color: rgb(64, 104, 130);  
+    
+}
+
+.fname{
+    padding-left: 40px;
+}
+.lname{
+    padding-left: 60px;
+}
+
+.fname-input{
+    margin-left: 20px;
+  background-color: rgba(177, 208, 224,0.6);
+   padding-top: 8px;
+   padding-bottom: 8px;
+   border-radius: 5px;
+   border: 1px solid rgba(177, 208, 224,0.6);
+       color: rgb(64, 104, 130);  
+}
+
+.lname-input{
+    margin-left: 30px;
+    background-color: rgba(177, 208, 224,0.6);
+   padding-top: 8px;
+   padding-bottom: 8px;
+   border-radius: 5px;
+   padding-right: 25px;
+   border: 1px solid rgba(177, 208, 224,0.6);
+       color: rgb(64, 104, 130);
+}
+
+.login-id{
+  background-color: rgba(177, 208, 224,0.6);
+   padding-top: 8px;
+   padding-bottom: 8px;
+   border-radius: 5px;
+   padding-right: 210px;
+   border: 1px solid rgba(177, 208, 224,0.6);
+       color: rgb(64, 104, 130);   
+}
+
+.login-pass{
+  background-color: rgba(177, 208, 224,0.6);
+   padding-top: 8px;
+   padding-bottom: 8px;
+   border-radius: 5px;
+   padding-right: 210px;
+   border: 1px solid rgba(177, 208, 224,0.6);
+       color: rgb(64, 104, 130);     
+}
+.email-input{
+    padding-right: 50px;
+    margin-left: 60px;
+    background-color: rgba(177, 208, 224,0.6);
+   padding-top: 8px;
+   padding-bottom: 8px;
+   border-radius: 5px;
+   border: 1px solid rgba(177, 208, 224,0.6);
+       color: rgb(64, 104, 130);
+}
+.phone-input{
+    padding-right: 50px;
+ background-color: rgba(177, 208, 224,0.6);
+   padding-top: 8px;
+   padding-bottom: 8px;
+   border-radius: 5px;
+   border: 1px solid rgba(177, 208, 224,0.6);
+       color: rgb(64, 104, 130);   
+}
+.password-input{
+    padding-right: 50px;
+    margin-left: 60px;
+ background-color: rgba(177, 208, 224,0.6);
+   padding-top: 8px;
+   padding-bottom: 8px;
+   border-radius: 5px;
+   border: 1px solid rgba(177, 208, 224,0.6);
+       color: rgb(64, 104, 130);   
+}
+.dob-input{
+    padding-right: 50px;
+    background-color: rgba(177, 208, 224,0.6);
+   padding-top: 8px;
+   padding-bottom: 8px;
+   border-radius: 5px;
+   border: 1px solid rgba(177, 208, 224,0.6);
+       color: rgb(64, 104, 130);
+}
+
+.password{
+  padding-left: 30px;
+}
+.email{
+    padding-left: 30px;
+}
+.docid{
+   margin-left: 30px;
+   padding-right: 75px;
+   background-color: rgba(177, 208, 224,0.6);
+   padding-top: 8px;
+   padding-bottom: 8px;
+   border-radius: 5px;
+   border: 1px solid rgba(177, 208, 224,0.6);
+       color: rgb(64, 104, 130);
+
+}
+
+.under-email{
+   font-size: 8px; 
+   margin-left: 260px;
+   color: #6998AB;
+}
+.under-login-id{
+   font-size: 12px; 
+   
+   color: #6998AB; 
+}
+#errorMsg{
+    color: red;
+}
+.register-form label{
+    color:#1A374D;
+}
+.registerBtn{
+    border: 1px solid rgba(177, 208, 224,0.8);
+    color: white;
+    background-color: rgba(177, 208, 224,0.8);
+    padding: 10px 32px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  
+}
+
+.registerBtn:hover{
+    background-color: rgba(84, 121, 136,0.7);;
+    color: white;
+    border: 1px solid rgba(84, 121, 136,0.7);;
+}
+
+.register{
+    border-width: 2px;
+    border-color: #406882;
+    border-style: solid;
+    border-radius: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 6px;
+    padding-bottom:6px;
+    color: #406882; 
+    position: absolute;
+    top: 10px;
+    left:150px;
+}
+
+.login{
+    color: #406882;
+    position: absolute;
+    top: 15px;
+
+}
+
+.noOTP{
+    color: rgb(111, 111, 111);
+    margin-left: 25%;
+
+}
+
+.resendOTP{
+    color: #6998AB;
+    margin-left: 35%;
+}
+
+.user-otp{
+    margin: 40px 0px 40px 20px;
+    
+}
+.div-bg
+{
+    width:100%;
+    height:300px;
+    position: relative;
+    display:block;
+    text-align: left;
+ 
+}
+
+img .form-background{
+
+    width:100%;
+    height:100%;
+    
+
+}
+
+img .adv-background{
+
+    width:100%;
+    height:100%;
+    
+
+}
+
+.homepage-from{
+  position: absolute;
+  left: 25%;
+border-radius: 25px;
+box-shadow: 0 0 40px rgba(8,7,16,0.4);
+ background-color: rgba(255,255,255,0.5);
+  color: black;
+  width: 50%;
+  
+  border: 1px solid rgba(255,255,255,0.13);
+  padding: 20px;
+  top:100%;
+}
+
+.div-left{
+  width: 50%; 
+  display: table-cell; 
+  background: white; 
+  height: 650px;
+}
+
+.div-right{
+width: 50%; 
+display: table-cell;  
+background-image: url('images/background.png'); 
+background-repeat: no-repeat;
+background-size: 100%;
+vertical-align: middle;
+    text-align: center;
+
+}
+
+div.success-div{
+   background-size: cover;
+background-image: url('images/background.png'); 
+width: 100%; 
+  height: 650px;
+  vertical-align: middle;
+    text-align: center;
+
+}
+
+/*--------------------------------------------------------------------*/
+.navbar {
+    background-color: rgb(241, 246, 249);
+}
+
+ *{
+/*    margin: 0px;*/
+    font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif
+}
+
+.logo {
+    margin-left: 30px;
+}
+
+.list {
+    position: absolute;
+    right: 250px;
+    padding-top: 15px;
+    font-size: 13pt;
+}
+
+.departures, .trips {
+    font-weight: bold;
+}
+
+.account {
+    position: fixed;
+    right: -30px;
+}
+
+div {
+    display: inline-block;
+    width: 300px;
+}
+
+li, a {
+    text-decoration: none;
+    color: black;
+}
+
+.project-name {
+    color: rgb(64, 104, 130);
+    position: absolute;
+    top: 15px;
+    left: 100px;
+    font-size: 20px;
+}
+
+li {
+    display: inline;
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: 1170px;
+    width: 100px;
+    top: 53px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropBtn {
+    position: relative;
+    left: 850px;
+    bottom: 5px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropBtn {
+    background-color: rgb(241, 246, 249);
+}
+
+table, th, td {
+    border: 1.5px solid rgb(185, 185, 185);
+    text-align: center;
+    border-collapse: collapse;
+    width: 1400px;
+    font-size: 12pt;
+}
+
+.departuresTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-from {
+    margin: 0 auto;
+}
+
+.search-from, .search-to {
+    width: 30%;
+    display: inline-block;
+    border: 2px solid rgb(203, 212, 230);
+    height: 30px;
+    font-size: 12pt;
+    border-radius: 3px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.319);
+}
+
+.search-from:focus, .search-to:focus {
+    outline: none;
+    border-color: rgb(151, 159, 175);
+}
+
+.searchDiv {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.searchBtn, .addBtn, .updateBtn, .deleteBtn, .cancleBtn, .add-tripBtn, .update-tripBtn, .loginBtn, .submitBtn{
+    border-radius: 3px;
+    height: 37px;
+    border-color: rgba(0, 0, 0, 0);
+    color: white;
+    text-align: center;
+    font-size: 12pt;
+    width: 100px;
+}
+
+.searchBtn {
+    background-color: rgb(64, 104, 130);
+}
+
+.searchBtn:hover {
+    background-color: rgb(51, 83, 104);
+}
+
+.addBtn, .updateBtn, .add-tripBtn, .update-tripBtn, .loginBtn, .submitBtn {
+    background-color: rgb(105, 152, 171);
+}
+
+.updateBtn:hover, .addBtn:hover, .add-tripBtn:hover, .update-tripBtn:hover, .loginBtn:hover, .submitBtn:hover{
+    background-color: rgb(84, 121, 136);
+}
+
+.deleteBtn {
+    background-color: rgb(237, 83, 83);
+}
+
+.deleteBtn:hover {
+    background-color: rgb(189, 66, 66);
+}
+
+.cancleBtn {
+    background-color: rgb(217, 217, 217);
+    color: black;
+}
+
+.cancleBtn:hover {
+    background-color: rgb(173, 173, 173);
+}
+
+.alterTrips {
+    position: absolute;
+    left: 82%;
+    margin-top: 20px;
+}
+
+h3, .destination-from, .gate, .price-economic, .price-bussiness, .datediv, .timediv {
+    position: relative;
+    left: 90px
+}
+
+h3 {
+    margin-top: 20px;
+    width: 1000px;
+}
+
+.destination-to, .destination-from, .datediv, .timediv, .gate, .price-economic, .price-bussiness {
+    margin: 20px 0px 30px 50px;
+}
+
+.destination-to {
+    position: absolute;
+    right: 300px
+}
+
+.timediv {
+    position: absolute;
+    left: 860px
+}
+
+.price-bussiness {
+    position: absolute;
+    left: 825px
+}
+
+select, .date, .time, .bussiness, .economic {
+    background-color: rgb(237, 237, 237);
+    width: 215px;
+    height: 35px;
+    border-radius: 5px;
+    border-color: rgba(237, 237, 237, 0);
+    
+    font-size: 13pt;
+}
+
+select, .date, .time {
+    width: 215px;
+}
+
+.bussiness, .economic {
+    width: 60px;
+}
+
+.time {
+    display: inline-block;
+}
+
+select:focus, .date:focus {
+    border-color: rgb(189, 189, 189);
+    border-width: 2px;
+}
+
+option {
+    border-radius: 10px;
+    border-color: rgba(237, 237, 237, 0);
+}
+
+label {
+    font-size: 14pt;
+    padding-right: 6%;
+}
+
+hr {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.btns {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.add-tripBtn, .update-tripBtn {
+    position: absolute;
+    right: 50px;
+}
+
+.cancleBtn {
+    position: absolute;
+    left: 50px;
+}
+
+.background {
+    width: 50%;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+}
+
+.LoginBody {
+    background-color: rgb(241, 246, 249);
+    height: 100%;
+}
+
+.systemName {
+    margin-left: 4%;
+}
+
+.logoLogin {
+    margin-left: 20%;
+    display: block;
+}
+
+.id, .password {
+    margin-left: 19%;
+    margin-top: 2%;
+
+}
+
+.idInput, .passwordInput {
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border-width: 1px;
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: large;
+}
+
+.idInput::placeholder, .passwordInput::placeholder {
+    color: rgb(168, 168, 168);
+    font-size: large;
+    padding-left: 4px;
+}
+
+.idLabel, .passwordLabel {
+    font-size: 16pt;
+}
+
+.loginBtn {
+    position: absolute;
+    left: 20%;
+    margin-top: 40px;
+    height: 6%;
+    font-size: 14pt;
+}
+
+.email, .otpMsg {
+    color: rgb(111, 111, 111);
+}
+
+.email {
+    margin-left: 15%;
+    margin-top: 60px;
+}
+
+.otpMsg {
+    margin-left: 20%;
+    margin-bottom: 30px;
+}
+
+.otpResend {
+    margin-left: 22%;
+    display: block;
+    text-decoration: underline;
+    color:blue
+}
+
+.first, .second, .third, .fourth {
+    background-color: rgb(217, 217, 217);
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    border-color: rgba(237, 237, 237, 0);
+    text-align: center;
+    font-size: 13pt;
+}
+
+.otp {
+    margin: 40px 0px 40px 240px;
+}
+
+.submitBtn{
+    margin: 40px 0px 40px 330px;
+    font-size: 14pt;
+}
