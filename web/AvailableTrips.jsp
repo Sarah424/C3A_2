@@ -4,8 +4,9 @@
     Author     : atheer
 --%>
 
-<%@page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +20,25 @@
 
 </head>
 <body>
+     
+        <!--
+        get the  paramaters of the trips the user wants
+        search using getTrip() function from dbConn
+        get the result set 
+        show the resultset in while.hasNext loop 
+        and show tripCont and info (html) in each loop(trip)
+        set the bus/eco btns to the trip id
+        ->
+        
+    <%
+        //resultSet.getString("username")
+        String from ="jeddah";
+        String to="riyadh";
+        //String date ="2022-10-10 15:14:23";
+        //int seat_no=0;
+        dbConn.database_conn sql_Handler = new dbConn.database_conn();
+        ResultSet res_set = sql_Handler.getTrips(from,to);
+        %>
     <!-------------------------------------HEADER------------------------------------------->
     <div class="header">
         <div class="HeaderContainer">
@@ -49,33 +69,20 @@
     <!-------------------------------Page Components-------------------------------->
     <div class="bodyDiv">
 
-        
-        <!--
-        get the  paramaters of the trips the user wants
-        search using getTrip() function from dbConn
-        get the result set 
-        show the resultset in while.hasNext loop 
-        and show tripCont and info (html) in each loop(trip)
-        set the bus/eco btns to the trip id
-        ->
+       
         <%
-            //resultSet.getString("username")
-        String from ="";
-        String to="";
-        String date ="";
-        int seat_no=0;
-        dbConn.database_conn sql_Handler = new dbConn.database_conn();
-        ResultSet res_set = sql_Handler.getTrips( from,  to ,  date ,  seat_no);
         while(res_set.next()){
+        //<%= res_set.getString("Departure_station")
+        //<%= res_set.getString("Arrival_station")
         %>
         <!---------------------Trip-->
         <div class="tripContainer">
 
             <!------From To------>
             <div class="tripWay">
-                <p id="tripFrom">Jeddah</p>
+                <p id="tripFrom"><%= res_set.getString("Departure_station")%></p>
                 <i class="material-icons">arrow_forward</i>
-                <p id="tripTo">Riyadh</p>
+                <p id="tripTo"><%= res_set.getString("Arrival_station")%></p>
             </div>
 
             <!------Info Boxes------>
@@ -84,24 +91,24 @@
                     <!--leaving time-->
                     <p class="infoMiniTitle">Leaving</p> <br />
 
-                    <p id="l_time">10:05<%res_set.getString("time")%> </p>
+                    <p id="l_time"></p>
                     <!--<p id="l_APM">AM</p>-->
                 </div>
                 <div class="infoBox">
                     <!--arriving time-->
                     <p class="infoMiniTitle">Arriving</p> <br />
-                    <p id="a_time">10:05</p>
+                    <p id="a_time"></p>
                     <p id="a_APM">AM</p>
                 </div>
                 <div class="infoBox">
                     <!--trip date-->
                     <p class="infoMiniTitle">Date</p><br />
-                    <p id="Tdate">12 OCT 2022</p>
+                    <p id="Tdate"></p>
                 </div>
                 <div class="infoBox">
                     <!--trip price-->
                     <p class="infoMiniTitle">Price</p><br />
-                    <p id="Tprice">120.99</p>
+                    <p id="Tprice"></p>
                     <p id="sar">SAR</p>
                 </div>
 
@@ -110,16 +117,16 @@
             <!------BOTTOM BTNS------>
             <div class="be_btns">
 
-                <button class="be_button" id="${trip.getID()}">Business</button>
-                <button class="be_button" id="<% %>">Economy</button>
+                <button class="be_button" id="">Business</button>
+                <button class="be_button" id="">Economy</button>
             </div>
 
 
         </div>
         <!---------Trip END-------->        
-        <%
-            }
-        %>
+        <% 
+                      }
+    %>
     
         <!--NAV BTNS-->
         <div class="navBtns">
@@ -127,7 +134,11 @@
             <button class="next_button" id="next_btn">Choose Return Trip<i class="material-icons">chevron_right</i></button>
         </div>
     </div>
-
+        <% 
+            sql_Handler.close();
+            //<%=res_set.getString("date")
+            //else  out.print("you are not authorized to access these info!!!");
+    %>
 </body>
 </html>
 
