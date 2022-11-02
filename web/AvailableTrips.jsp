@@ -88,16 +88,13 @@
             <div class="tripInfo">
                 <div class="infoBox">
                     <!--leaving time-->
-                    <p class="infoMiniTitle">Leaving</p> <br />
-
-                    <p id="l_time"></p>
-                    <!--<p id="l_APM">AM</p>-->
+                    <p class="infoMiniTitle">Leaving </p> <br />
+                    <p id="l_time"><%= res_set.getString("d_time")%></p>
                 </div>
                 <div class="infoBox">
                     <!--arriving time-->
                     <p class="infoMiniTitle">Arriving</p> <br />
-                    <p id="a_time"></p>
-                    <p id="a_APM">AM</p>
+                    <p id="a_time"><%= res_set.getString("a_time")%></p>
                 </div>
                 <div class="infoBox">
                     <!--trip date-->

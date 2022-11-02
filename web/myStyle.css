@@ -394,7 +394,7 @@ body {
     position: relative;
     margin-left: 10px;
     top: 50%;
-    transform: translateX(-50%) translateY(20%);
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .navBtns .next_button {
@@ -532,11 +532,11 @@ body {
         vertical-align: middle;
     }
 .THback_btn .material-icons {
-    color: white;
+color: white;
     position: relative;
     margin-left: 10px;
     top: 50%;
-    transform: translateX(-50%) translateY(20%);
+    transform: translateX(-50%) translateY(-44%);
 }
 .THback_btn:hover{
     color: #1A374D;

@@ -19,6 +19,8 @@
 </head>
 <%
 session.setAttribute("id", "2");
+session.setAttribute("first_name", "ahmed");
+session.setAttribute("last_name", "ali");
 //session.getAttribute("id")
 //String id= "1";
  if(session.getAttribute("id") != null ){
@@ -34,7 +36,7 @@ session.setAttribute("id", "2");
             <p id="systemTitle">Railway Booking System</p>
 
 
-            <p class="userWelcomeMsg">Welcome, Mr X</p>
+            <p class="userWelcomeMsg">Welcome, <%= session.getAttribute("first_name").toString()%>  <%= session.getAttribute("last_name").toString()%></p>
 
         </div>
 
@@ -74,7 +76,7 @@ session.setAttribute("id", "2");
                         <th>Time</th>
                         <th>Options</th>
                     </tr>
-                    <!--Ticket INFOOOO------------------>
+                    <!--Ticket INFO------------------>
                     <%
                    
                     //get users booked tickets
@@ -83,22 +85,16 @@ session.setAttribute("id", "2");
                     <tr class="THT_content">
                         <td id="trip">from : <%=rsltst.getString("Departure_station") %>, to : <%=rsltst.getString("Arrival_station") %></td>
                         <td id="date"><%=rsltst.getString("date") %></td>
-                        <td id="time"><%=rsltst.getString("time") %></td>
+                        <td id="time"><%=rsltst.getString("d_time") %> - <%=rsltst.getString("a_time") %> </td>
                         <td id="options">
                             <p>Btns/href here!!</p>
                             <!--two a href-->
                         </td>
                     </tr>
-                    <%
-                    }
-                    rsltst.close();
-                    }
-                    else
-                    out.print("not allowed here");
-                    //show login page
-                    %>
-                    <!---------------------------------<<-->
                     
+                    <!---------------------------------<<-->
+                    <%       }
+                    %>
                 </table>
             </div>
 
@@ -110,6 +106,13 @@ session.setAttribute("id", "2");
     </div>
 
 </body>
+<%
+             rsltst.close();
+                    }
+                    else
+                    out.print("not allowed here");
+                    //show login page
+                    %>
 </html>
 
 
