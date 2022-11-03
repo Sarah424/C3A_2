@@ -20,9 +20,27 @@
     <body class="LoginBody">
 
         <%
-                 
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
+      try {
+      if (request.getParameter("error").equals("1")){
+        %>
+        <script>alert("OTP is not valid");</script>
+        <%
+            }
+ }catch(NullPointerException ex ){
+        }
+
+
+         String username ="", password = "";
+        Database.SignupController loginControl = new Database.SignupController();
+
+            try {
+             username = request.getParameter("username");
+             password = request.getParameter("password");
+
+         if (username == null || password == null){
+              response.sendRedirect("AdminLoginPage.jsp?");
+            }
+
        if (username.matches("[a-zA-Z.]+")) {
             String sub = username.substring(0, 2);
             if (sub.indexOf(".") != 1) {
@@ -30,20 +48,20 @@
             }
         }
 
-        Database.SignupController loginControl = new Database.SignupController();
-
         try {
         if (!loginControl.isAdmin(username)) {
             response.sendRedirect("AdminLoginPage.jsp?error=2");
         } else if (!loginControl.isValidAdmin(username, password)) {
             response.sendRedirect("AdminLoginPage.jsp?error=3");
         }
+                session.setAttribute("username", username);
+                session.setAttribute("password", password);
+                String otp = loginControl.sendOTP(loginControl.getAdminEmail(username)) + "";
+                session.setAttribute("OTP", otp);
             } catch(IllegalStateException ex ){
             }
-            
-              //  session.setAttribute("adminUsername", username);
-              //  session.setAttribute("adminPassword", password);
-                loginControl.sendOTP(loginControl.getAdminEmail(username));
+        }catch(NullPointerException ex ){
+        }
         %>
 
 
@@ -57,18 +75,18 @@
 
         <p class="email">Please enter the verification code sent to EMAIL</p>
 
-        <form action="" method="POST">
+        <form name="otp" action="DeparturesPage.jsp" method="POST">
 
             <div class="otp">
-                <input class="first" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                <input class="second" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                <input class="third" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                <input class="fourth" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                <input name = "first" class="first" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                <input name = "second"  class="second" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                <input name = "third"  class="third" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                <input name = "fourth"  class="fourth" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
             </div>
 
             <p class="otpMsg">Didn’t receive an OTP?</p>
 
-            <a href="" class="otpResend">Resend OTP?</a>
+            <a href="resendEmail.jsp" class="otpResend">Resend OTP?</a>
 
             <input type="submit" name="submit" value="Submit" class="submitBtn">
         </form>

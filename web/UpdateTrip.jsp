@@ -15,6 +15,12 @@
     </head>
 
     <body>
+        <%
+               if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
+             response.sendRedirect("AdminLoginPage.jsp");
+            } 
+            %>
+        
         <nav class="navbar">
             <div class="logo">
                 <img src="images/logo.png" alt="System Logo" width="50" height="50">

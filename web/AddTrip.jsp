@@ -15,6 +15,23 @@
     </head>
 
     <body>
+        
+              <%
+          if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
+             response.sendRedirect("AdminLoginPage.jsp");
+            } else {
+            try {
+            if (request.getParameter("error").equals("1")){
+            
+        %>
+        <script>alert("an unexpected error occured. Please try again");</script>
+        <%
+}
+        }catch(NullPointerException ex ){
+        }
+}
+        %>
+        
         <nav class="navbar">
             <div class="logo">
                 <img src="images/logo.png" alt="System Logo" width="50" height="50">
@@ -36,13 +53,13 @@
 
         <h1>Add New Trip</h1>
 
-        <form action="" method="POST" name="add-trip">
+        <form action="TripPage.jsp" method="POST" name="add-trip">
 
             <h3>Destination</h3>
 
             <div class="destination-from">
                 <label for="city-from" class="city-from">From</label>
-                <select name="city-from" id="city-from">
+                <select name="city-from" id="city-from" required>
                     <option value="" disabled selected hidden>Select a City</option>
                     <option value="Jeddah">Jeddah</option>
                     <option value="Riyadh">Riyadh</option>
@@ -56,7 +73,7 @@
 
             <div class="destination-to">
                 <label for="city-to">To</label>
-                <select name="city-to" id="city-to" placeholder="Choose">
+                <select name="city-to" id="city-to" placeholder="Choose" required>
                     <option value="" disabled selected hidden>Select a City</option>
                     <option value="Jeddah">Jeddah</option>
                     <option value="Riyadh">Riyadh</option>
@@ -74,12 +91,12 @@
 
             <div class="datediv">
                 <label for="date">Date</label>
-                <input type="date" id="date" name="Date" class="date">
+                <input type="date" id="date" name="date" class="date" required>
             </div>
 
             <div class="timediv">
                 <label for="time">Time</label>
-                <input type="time" name="time" id="time" class="time">
+                <input type="time" name="time" id="time" class="time" required>
             </div>
 
             <hr>
@@ -87,18 +104,11 @@
             <h3>Price</h3>
 
             <div class="price-economic">
-                <label for="economic">Economic</label>
-                <input type="number" min="1" step="any" id="economic" class="economic" />
+                <label for="economic">Price</label>
+                <input type="number" min="1" step="any" name="riyal" id="economic" class="economic" required/>
                 .
-                <input type="number" min="0" step="any" class="economic" />
+                <input type="number" min="0" step="any" name="halal" class="economic" required/>
 
-            </div>
-
-            <div class="price-bussiness">
-                <label for="bussiness">Bussiness</label>
-                <input type="number" min="1" step="any" id="bussiness" class="bussiness" />
-                .
-                <input type="number" min="0" step="any" class="bussiness" />
             </div>
 
             <hr>
@@ -107,7 +117,7 @@
 
             <div class="gate">
                 <label for="gate">Gate</label>
-                <select name="gate" id="gate">
+                <select name="gate" id="gate" required>
                     <option value="" disabled selected hidden>Select a Gate</option>
                     <option value="A1">A1</option>
                     <option value="A2">A2</option>
@@ -121,7 +131,7 @@
             <br>
             <div class="btns">
                 <input type="button" class="cancleBtn" value="Cancle">
-                <input type="button" class="add-tripBtn" value="Add">
+                <input type="Submit" class="add-tripBtn" value="Add">
             </div>
         </form>
     </body>

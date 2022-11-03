@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="Database.TripController"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +19,26 @@
     </head>
 
     <body>
+
+        <%        
+            if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
+             response.sendRedirect("AdminLoginPage.jsp");
+            } else {
+        try {    
+            String otp1 = (String) request.getParameter("first");
+            String otp2 = (String) request.getParameter("second");
+            String otp3 = (String) request.getParameter("third");
+            String otp4 = (String) request.getParameter("fourth");
+            String otpText = otp1 + otp2 + otp3 + otp4;
+            String otp = (String) session.getAttribute("OTP");
+          if (!otpText.equals(otp)) {
+                response.sendRedirect("AdminOTP.jsp?error=1");
+            }
+            } catch(NullPointerException ex) {
+            }
+            }
+        %>
+
         <nav class="navbar">
             <div class="logo">
                 <img src="images/logo.png" alt="System Logo" width="50" height="50">
@@ -44,20 +66,37 @@
             <input type="button" class="searchBtn" value="Search">
         </div>
 
+
+
         <table class="departuresTable">
             <tr>
                 <th>Trip ID</th>
                 <th>From</th>
                 <th>To</th>
-                <th>Date & Time</th>
+                <th>Date</th>
+                <th>Time</th>
                 <th>Gate</th>
                 <th>Status</th>
             </tr>
-            <tr>
-                <td>
+            <% 
+                      Database.TripController trip = new Database.TripController();
+                      ResultSet rs = trip.getTrips();
+                        while(rs.next()) {
 
-                </td>
+            %>
+            <tr>
+                <td><%= rs.getString("idTrip") %> </td>
+                <td><%= rs.getString("departure_station") %> </td>
+                <td><%= rs.getString("arrival_station") %> </td>
+                <td><%= rs.getString("Date") %> </td>
+                <td><%= rs.getString("time") %> </td>
+                <td><%= rs.getString("gate") %> </td>
+                <td><%= rs.getString("status") %> </td>
             </tr>
-        </table>
-    </body>
+            <% }
+            %>
+        </td>
+    </tr>
+</table>
+</body>
 </html>
