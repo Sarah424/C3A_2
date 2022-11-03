@@ -21,7 +21,7 @@
              <nav class="navbar">
             <div class="logo">
                 <img src="images/logo.png" alt="System Logo" width="50" height="50">
-                <a href="" class="project-name">Railway Booking System</a>
+                <a href="HomePage.jsp" class="project-name">Railway Booking System</a>
             </div>
                  
         </nav>   
