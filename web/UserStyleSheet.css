@@ -706,6 +706,14 @@ option {
     border-color: rgba(237, 237, 237, 0);
 }
 
+
+ h4{
+    font-size: 20pt;
+    padding-right: 6%;
+    color:#1A374D;
+
+}
+
 label {
     font-size: 14pt;
     padding-right: 6%;
@@ -826,3 +834,15 @@ hr {
     margin: 40px 0px 40px 330px;
     font-size: 14pt;
 }
+
+
+.fill-submit{
+    float: right;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(26, 55, 77, 0.8);
+    background-color: rgba(26, 55, 77, 0.8);
+     padding: 10px 32px;
+     font-size: 16px;
+     cursor: pointer;
+ }
