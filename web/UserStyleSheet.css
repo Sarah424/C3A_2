@@ -846,3 +846,14 @@ hr {
      font-size: 16px;
      cursor: pointer;
  }
+
+
+ form.Booking-form{
+    display: table;
+margin: 0 auto;
+}
+
+
+.Booking-form label{
+    color:#1A374D;
+}
