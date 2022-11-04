@@ -30,7 +30,7 @@
                  <div class="register-div">
         <form action="#" name="Booking-form" method="POST" class="Booking-form">
 
-<h4>Pesrsonal information</h4>
+<h4>Personal information</h4>
 
 <label for="doctype" class="doctype">Document Type</label>
 
