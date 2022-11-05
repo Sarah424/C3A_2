@@ -68,7 +68,7 @@
 
 
 
-        <table class="departuresTable">
+        <table class="departuresTable" id="table">
             <tr>
                 <th>Trip ID</th>
                 <th>From</th>
@@ -85,7 +85,7 @@
 
             %>
             <tr>
-                <td><%= rs.getString("idTrip") %> </td>
+                <td><%= rs.getString("TripID") %> </td>
                 <td><%= rs.getString("departure_station") %> </td>
                 <td><%= rs.getString("arrival_station") %> </td>
                 <td><%= rs.getString("Date") %> </td>

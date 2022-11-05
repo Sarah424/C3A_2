@@ -7,6 +7,7 @@ package Database;
 import Account.Admin;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 
@@ -54,11 +55,16 @@ public class NewMain {
         if (Integer.parseInt(otpText) != Integer.parseInt("1234")) {
             System.out.println("equal");
         }
-                    System.out.println(otpText);
+        System.out.println(otpText);
 
-                    SignupController s = new SignupController();
-                    s.sendOTP("sara_almeshaal@outlook.com");
-                    
-                    
+        SignupController s = new SignupController();
+
+        TripController trip = new TripController();
+        trip.deleteTrip(1);
+        ResultSet rs = trip.getTripInfo(Integer.parseInt("2"));
+
+        //    public int updateTrip(int tripId, String price, String gate, String from, String to, Date date, String time, String status) {
+        System.out.println(trip.updateTrip(2, 20, "g2", "Jeddah", "Riyadh", date, "8:51", "boarding"));
+
     }
 }

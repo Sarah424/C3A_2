@@ -73,7 +73,7 @@
         <h1 class="systemName">Railway Booking Administration System</h1>
 
 
-        <p class="email">Please enter the verification code sent to EMAIL</p>
+        <p class="email">Please enter the verification code sent to your E-mail</p>
 
         <form name="otp" action="DeparturesPage.jsp" method="POST">
 

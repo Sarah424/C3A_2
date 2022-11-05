@@ -23,23 +23,6 @@
           
                if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
              response.sendRedirect("AdminLoginPage.jsp");
-            } else { 
-            try {
-            String from = request.getParameter("city-from");
-            String to = request.getParameter("city-to");
-            Date date = Date.valueOf(request.getParameter("date"));
-            String time = request.getParameter("time");
-            String riyal = request.getParameter("riyal") ;
-            String halal = "." +  request.getParameter("halal");
-            double price = Double.parseDouble(riyal+halal);
-            String gate = request.getParameter("gate");
-            Database.TripController trip = new Database.TripController();
-            int result = trip.addTrip(from, to, date, time, price, gate);
-            if (result != 1){
-               response.sendRedirect("AddTrip.jsp?error=1");
-            }
-            }catch(Exception e){
-            }
             }
         %>
         <nav class="navbar">
@@ -67,11 +50,10 @@
             <input type="text" class="search-from" placeholder="From Where?">
             <input type="text" class="search-to" placeholder="Where To?">
             <input type="button" class="searchBtn" value="Search">
-            <input type="button" class="addBtn" value="Add Trip" onclick="location.href ="AddTrip.jsp""">
-
+            <input type="button" class="addBtn" value="Add Trip" onclick="addTripPage()">
         </div>
 
-        <table class="departuresTable">
+        <table class="departuresTable" id="table">
             <tr>
                 <th>Trip ID</th>
                 <th>From</th>
@@ -89,7 +71,7 @@
                                     while(rs.next()) {
                     %>
             <tr>
-                <td><%= rs.getString("idTrip") %> </td>
+                <td class="id"><%= rs.getString("TripID") %> </td>
                 <td><%= rs.getString("departure_station") %> </td>
                 <td><%= rs.getString("arrival_station") %> </td>
                 <td><%= rs.getString("Date") %> </td>
@@ -104,8 +86,43 @@
 </table>
 
 <div class="alterTrips">
-    <input type="button" class="updateBtn" value="Update Trip">
-    <input type="button" class="deleteBtn" value="Delete Trip">
+    <input type="button" class="updateBtn" value="Update Trip" onclick="updateTrip()">
+    <input type="button" class="deleteBtn" value="Delete Trip" onclick="deleteTrip()">
 </div>
+
+<script>
+    function highlight(e) {
+        if (selected[0])
+            selected[0].className = '';
+        e.target.parentNode.className = 'selected';
+    }
+
+    var table = document.getElementById('table'),
+            selected = table.getElementsByClassName('selected');
+    table.onclick = highlight;
+
+    var id;
+    var trs = document.querySelectorAll("tr");
+    for (var i = 0; i < trs.length; i++)
+        (function (e) {
+            trs[e].addEventListener("click", function () {
+                id = this.getElementsByClassName('id')[0].innerHTML;
+            }, false);
+        })(i);
+
+    function deleteTrip() {
+        location.replace("DeleteTrip.jsp?tripID=" + id)
+    }
+
+    function addTripPage() {
+        location.replace("AddTripPage.jsp")
+    }
+
+    function updateTrip() {
+        location.replace("TripInfo.jsp?tripID=" + id)
+    }
+
+</script>
+
 </body>
 </html>

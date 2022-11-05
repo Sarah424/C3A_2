@@ -374,3 +374,15 @@ hr {
     margin: 40px 0px 40px 330px;
     font-size: 14pt;
 }
+
+
+td {
+    border: 1px #DDD solid;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: rgba(105,152,171, 0.5);
+    color: #FFF;
+}

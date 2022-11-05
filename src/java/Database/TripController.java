@@ -32,8 +32,8 @@ public class TripController {
         }
         return rs;
     }
-    
-      public ResultSet getUpdatableTrips() {
+
+    public ResultSet getUpdatableTrips() {
         query = "SELECT * FROM Trip WHERE status = 'on Time';";
         try {
             prdStmt = con.prepareStatement(query);
@@ -42,7 +42,6 @@ public class TripController {
         }
         return rs;
     }
-    
 
     public int addTrip(String from, String to, Date date, String time, double price, String gate) {
         int result = 0;
@@ -65,27 +64,49 @@ public class TripController {
         return result;
     }
 
-    public int deleteTrip() {
-        String query = "";
-        int result = -1;
+    public int deleteTrip(int tripID) {
+        query = "DELETE FROM Trip WHERE TripID= " + tripID;
+        int result = 0;
         try {
             st = con.createStatement();
             result = st.executeUpdate(query);
         } catch (Exception e) {
-            result = 0;
+            result = -1;
         }
         return result;
     }
 
-    public int updateTrip() {
-        String query = "";
-        int result = -1;
+    public ResultSet getTripInfo(int tripId) {
+        query = "SELECT * FROM Trip WHERE TripID=" + tripId;
         try {
-            st = con.createStatement();
-            result = st.executeUpdate(query);
+            prdStmt = con.prepareStatement(query);
+            rs = prdStmt.executeQuery();
+        } catch (SQLException e) {
+        }
+        return rs;
+    }
+
+    public int updateTrip(int tripId, double price, String gate, String from, String to, Date date, String time, String status) {
+        int result = 0;
+        try {
+            query = "UPDATE Trip SET price = ?, gate = ?, departure_station = ?, arrival_station = ?, date = ?, time = ?, status = ? WHERE TripID = ?";
+            prdStmt = con.prepareStatement(query);
+            prdStmt.setDouble(1, price);
+
+            prdStmt.setString(2, gate);
+            prdStmt.setString(3, from);
+            prdStmt.setString(4, to);
+            prdStmt.setDate(5, date);
+            prdStmt.setString(6, time);
+            prdStmt.setString(7, status);
+            prdStmt.setInt(8, tripId);
+            result = prdStmt.executeUpdate();
+
         } catch (Exception e) {
-            result = 0;
+            System.out.println(e.getMessage());
+            result = -1;
         }
         return result;
     }
+
 }

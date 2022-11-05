@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,11 +17,20 @@
 
     <body>
         <%
-               if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
-             response.sendRedirect("AdminLoginPage.jsp");
-            } 
-            %>
-        
+if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
+response.sendRedirect("AdminLoginPage.jsp");
+} else {
+try {
+if (request.getParameter("error").equals("1")){
+        %>
+        <script>alert("an unexpected error occured. Please try again");</script>
+        <%
+}
+        }catch(NullPointerException ex ){
+        }
+}
+        %>
+
         <nav class="navbar">
             <div class="logo">
                 <img src="images/logo.png" alt="System Logo" width="50" height="50">
@@ -42,7 +52,7 @@
 
         <h1>Update Trip Information</h1>
 
-        <form action="" method="POST" name="add-trip">
+        <form action="UpdateTripInfo.jsp" method="GET" name="update-trip">
 
             <h3>Destination</h3>
 
@@ -62,7 +72,7 @@
 
             <div class="destination-to">
                 <label for="city-to">To</label>
-                <select name="city-to" id="city-to" placeholder="Choose">
+                <select name="city-to" placeholder="Choose" id="city-to">
                     <option value="" disabled selected hidden>Select a City</option>
                     <option value="Jeddah">Jeddah</option>
                     <option value="Riyadh">Riyadh</option>
@@ -80,12 +90,12 @@
 
             <div class="datediv">
                 <label for="date">Date</label>
-                <input type="date" id="date" name="Date" class="date">
+                <input type="date" name="date" class="date" id="date">
             </div>
 
             <div class="timediv">
                 <label for="time">Time</label>
-                <input type="time" name="time" id="time" class="time">
+                <input type="time" name="time" class="time" id="time">
             </div>
 
             <hr>
@@ -93,18 +103,11 @@
             <h3>Price</h3>
 
             <div class="price-economic">
-                <label for="economic">Economic</label>
-                <input type="number" min="1" step="any" id="economic" class="economic" />
+                <label for="economic">Price</label>
+                <input type="number" min="1" step="any"  class="economic" name="riyal" id="riyal"/>
                 .
-                <input type="number" min="0" step="any" class="economic" />
+                <input type="number" min="0" step="any" class="economic" name="halal" id="halal"/>
 
-            </div>
-
-            <div class="price-bussiness">
-                <label for="bussiness">Bussiness</label>
-                <input type="number" min="1" step="any" id="bussiness" class="bussiness" />
-                .
-                <input type="number" min="0" step="any" class="bussiness" />
             </div>
 
             <hr>
@@ -113,7 +116,7 @@
 
             <div class="gate">
                 <label for="gate">Gate</label>
-                <select name="gate" id="gate">
+                <select name="gate" id="gate" name="gate">
                     <option value="" disabled selected hidden>Select a Gate</option>
                     <option value="A1">A1</option>
                     <option value="A2">A2</option>
@@ -126,9 +129,33 @@
 
             <br>
             <div class="btns">
-                <input type="button" class="cancleBtn" value="Cancle">
-                <input type="button" class="update-tripBtn" value="Update">
+                <input type="button" class="cancleBtn" value="Cancle" onclick="tripPage()">
+                <input type="Submit" class="update-tripBtn" value="Update" ">
             </div>
+            <input type="hidden" id="tripID" name="tripID"/>
         </form>
+        <script>
+            var url = new URL(window.location.href);
+
+            var price = url.searchParams.get("price");
+            var riyal = price.substring(0, price.indexOf("."));
+            var halal = price.substring(price.indexOf(".") + 1, price.length);
+            document.getElementById("city-from").value = url.searchParams.get("city-from");
+            document.getElementById("city-to").value = url.searchParams.get("city-to");
+            document.getElementById("date").value = url.searchParams.get("date");
+            document.getElementById("time").value = url.searchParams.get("time");
+            document.getElementById("gate").value = url.searchParams.get("gate");
+            document.getElementById("riyal").value = parseInt(riyal);
+            document.getElementById("halal").value = parseInt(halal);
+            document.getElementById("tripID").value = url.searchParams.get("tripID");
+
+            function tripPage() {
+                location.replace("TripPage.jsp");
+            }
+
+            function updateTripInfo() {
+                location.replace("UpdateTripInfo.jsp");
+            }
+        </script>
     </body>
 </html>

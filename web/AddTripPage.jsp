@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="Database.TripController"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,13 +18,13 @@
     </head>
 
     <body>
-        
-              <%
-          if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
-             response.sendRedirect("AdminLoginPage.jsp");
-            } else {
-            try {
-            if (request.getParameter("error").equals("1")){
+
+        <%
+    if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
+       response.sendRedirect("AdminLoginPage.jsp");
+      } else {
+      try {
+      if (request.getParameter("error").equals("1")){
             
         %>
         <script>alert("an unexpected error occured. Please try again");</script>
@@ -31,7 +34,7 @@
         }
 }
         %>
-        
+
         <nav class="navbar">
             <div class="logo">
                 <img src="images/logo.png" alt="System Logo" width="50" height="50">
@@ -53,7 +56,7 @@
 
         <h1>Add New Trip</h1>
 
-        <form action="TripPage.jsp" method="POST" name="add-trip">
+        <form action="AddTripInfo.jsp" method="POST" name="add-trip">
 
             <h3>Destination</h3>
 
@@ -130,9 +133,15 @@
 
             <br>
             <div class="btns">
-                <input type="button" class="cancleBtn" value="Cancle">
-                <input type="Submit" class="add-tripBtn" value="Add">
+                <input type="button" class="cancleBtn" value="Cancle" onclick="tripPage()">
+                <input type="Submit" class="add-tripBtn" value="Submit">
             </div>
         </form>
+        <script>
+            onclick="tripPage()">
+            function tripPage() {
+                location.replace("TripPage.jsp")
+            }
+        </script>
     </body>
 </html>
