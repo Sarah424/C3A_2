@@ -1,5 +1,5 @@
 <%-- 
-    Document   : Fill_information
+    Document   : Payment
     Author     : bayan
 --%>
 
@@ -28,62 +28,37 @@
                 
                 
                  <div class="register-div">
-        <form action="#" name="register-form" method="POST" class="register-form">
-
-<h4>Pesrsonal information</h4>
-
-<label for="doctype" class="doctype">Document Type</label>
+        <form action="#" name="Booking-form" method="POST" class="Booking-form">
 
 
-<label for="docid" required>Document ID</label>
 
+            <br><br>           
+<h4>Card information</h4>
 
-<br><br>
-
-
-<select name="doctype" id="doctype" class="select-doctype">
-    <option value="doc_type">National ID</option>
-    <option value="doc_type">PASSPORT</option>
-</select>
-<input type="text" id="docid" name="documentid" class="docid">
+<label for="CardName" class="CardName">Card Number</label>
+<label for="CVV" class="CVV">CVV</label>
 
 <br><br>
 
-<label for="title">Title</label>
-<label for="fname" class="fname">First Name</label>
-<label for="lname" class="lname">Last Name</label>
+
+<input type="text" id="CardNumber" name="Card Number" class="CardNum-input">
+
+
+<input type="text" id="CVV" name="CVV" class="CVV-input"><br>
+
 <br><br>
-<select name="title" id="title" class="select-title">
-    <option value="title">Mr</option>
-    <option value="title">Mrs</option>
-    <option value="title">Miss</option>
-
-</select>
-
-
-<input type="text" id="fname" name="firstname" class="fname-input">
-
-
-<input type="text" id="lname" name="lastname" class="lname-input"><br>
-
 <br>
 
+<label for="CardName" class="CardName">Name on card</label>
+
+
 
 
 <br><br>
 
-<h4>Contact information</h4>
+<input type="text" id="CardNumber" name="CardName" class="CardNum-input">
 
-<br><br>
 
-<label for="phone">Mobile Number</label>
-<label for="doctype" class="email">Email</label>
-
-<br><br>
-
-<input type="text" name="phone" placeholder="05XXXXXXXX" class="phone-input">
-
-<input type="text" name="email" required class="email-input">
 
 
 <p id="errorMsg"></p>
@@ -93,10 +68,23 @@
         </form>
     </div>
                 
+          
                 
                 
             </div>
-
+            <div class="div-summary"> 
+                <h2 style="font-weight: normal; color:#000a0f;">Booking Summary</h2><br>
+                <p>Till</p>
+                <p>To</p>
+                <p>Duration:</p>
+                <p>Date:</p>
+                <p>Seats:</p>
+                <p>total price:</p>
+                <br><br>
+                <br>
+                <button class="ConfirmBtn" onclick="window.location.href='Confirmation.jsp';">Confirm</button>
+                <button class="ConfirmBtn" onclick="window.location.href='HomePage.jsp';">Cancel</button>
+            </div>
         </div>
     </div>
         
