@@ -16,7 +16,6 @@
     <body>
 
         <%
-           
   try {
           String from = request.getParameter("city-from");
             String to = request.getParameter("city-to");

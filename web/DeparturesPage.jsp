@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="Database.TripController"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,9 +22,7 @@
     <body>
 
         <%        
-            if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
-             response.sendRedirect("AdminLoginPage.jsp");
-            } else {
+         
         try {    
             String otp1 = (String) request.getParameter("first");
             String otp2 = (String) request.getParameter("second");
@@ -36,7 +35,7 @@
             }
             } catch(NullPointerException ex) {
             }
-            }
+            
         %>
 
         <nav class="navbar">
@@ -53,7 +52,7 @@
             <div class="dropdown">
                 <input type="image" name="profile" src="images/profile.png" width="35px" class="dropBtn">
                 <div class="dropdown-content">
-                    <a href="#">Logout</a>
+                    <a href="Logout.jsp">Logout</a>
                 </div>
             </div>
         </nav>

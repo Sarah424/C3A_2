@@ -39,7 +39,7 @@
             <div class="dropdown">
                 <input type="image" name="profile" src="images/profile.png" width="35px" class="dropBtn">
                 <div class="dropdown-content">
-                    <a href="#">Logout</a>
+                    <a href="Logout.jsp">Logout</a>
                 </div>
             </div>
         </nav>

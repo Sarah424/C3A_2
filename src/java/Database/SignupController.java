@@ -95,7 +95,7 @@ public class SignupController {
                 return new jakarta.mail.PasswordAuthentication(email, password);
             }
         };
-
+        
         jakarta.mail.Session session = jakarta.mail.Session.getInstance(props, auth);
         int otp = 0;
         try {

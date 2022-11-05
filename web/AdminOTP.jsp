@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="Account.Admin"%>
+<%@ page import="Database.SignupController"%>
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@
         <script>alert("OTP is not valid");</script>
         <%
             }
- }catch(NullPointerException ex ){
+         }catch(NullPointerException ex ){
         }
 
 
