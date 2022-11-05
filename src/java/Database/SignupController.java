@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 import java.util.Random;
-
 /**
  *
  * @author Sara_
@@ -78,39 +77,39 @@ public class SignupController {
         }
     }
 
-    public static int sendOTP(String recipient) {
-        final String email = "railway_booking@outlook.com";
-        final String password = "Project.cpit-455";
-
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.ssl.trust", "smtp.outlook.com");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.outlook.com");
-        props.put("mail.smtp.port", "587");
-        props.put("mail.debug", "true");
-
-        jakarta.mail.Authenticator auth = new jakarta.mail.Authenticator() {
-            protected jakarta.mail.PasswordAuthentication getPasswordAuthentication() {
-                return new jakarta.mail.PasswordAuthentication(email, password);
-            }
-        };
-        
-        jakarta.mail.Session session = jakarta.mail.Session.getInstance(props, auth);
-        int otp = 0;
-        try {
-            jakarta.mail.internet.MimeMessage message = new jakarta.mail.internet.MimeMessage(session);
-            message.setFrom(new jakarta.mail.internet.InternetAddress(email));
-            jakarta.mail.internet.InternetAddress[] address = {new jakarta.mail.internet.InternetAddress(recipient)};
-            message.setRecipients(jakarta.mail.Message.RecipientType.TO, address);
-            Random rand = new Random();
-            otp = rand.nextInt(10000);
-            message.setSubject("Your One Time Password");
-            message.setText("Your OTP to login is " + otp + " Please do not share your OTP.");
-            jakarta.mail.Transport.send(message);
-
-        } catch (jakarta.mail.MessagingException ex) {
-        }
-        return otp;
-    }
+//    public static int sendOTP(String recipient) {
+//        final String email = "railway_booking@outlook.com";
+//        final String password = "Project.cpit-455";
+//
+//        Properties props = new Properties();
+//        props.put("mail.smtp.auth", "true");
+//        props.put("mail.smtp.ssl.trust", "smtp.outlook.com");
+//        props.put("mail.smtp.starttls.enable", "true");
+//        props.put("mail.smtp.host", "smtp.outlook.com");
+//        props.put("mail.smtp.port", "587");
+//        props.put("mail.debug", "true");
+//
+//        jakarta.mail.Authenticator auth = new jakarta.mail.Authenticator() {
+//            protected jakarta.mail.PasswordAuthentication getPasswordAuthentication() {
+//                return new jakarta.mail.PasswordAuthentication(email, password);
+//            }
+//        };
+//        
+//        jakarta.mail.Session session = jakarta.mail.Session.getInstance(props, auth);
+//        int otp = 0;
+//        try {
+//            jakarta.mail.internet.MimeMessage message = new jakarta.mail.internet.MimeMessage(session);
+//            message.setFrom(new jakarta.mail.internet.InternetAddress(email));
+//            jakarta.mail.internet.InternetAddress[] address = {new jakarta.mail.internet.InternetAddress(recipient)};
+//            message.setRecipients(jakarta.mail.Message.RecipientType.TO, address);
+//            Random rand = new Random();
+//            otp = rand.nextInt(10000);
+//            message.setSubject("Your One Time Password");
+//            message.setText("Your OTP to login is " + otp + " Please do not share your OTP.");
+//            jakarta.mail.Transport.send(message);
+//
+//        } catch (jakarta.mail.MessagingException ex) {
+//        }
+//        return otp;
+//    }
 }

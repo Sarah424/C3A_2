@@ -47,12 +47,60 @@ public class database_conn {
         }
         return resultSet;
     }
+        
+        public ResultSet getTrip(int id) {
+        sqlQuery = "SELECT * FROM TRIP WHERE id= " +id + ";";
+        try{
+            preparedStmt = conn.prepareStatement(sqlQuery);
+            resultSet = preparedStmt.executeQuery();
+            System.out.println("succeed in getting trips");
+        }catch(SQLException e){
+            System.out.println("error in getting trips");
+        }
+        return resultSet;
+    }
+        
+        //-----------------------------pay ticket for user
+        
+        public int bookTicket(String user_id, int trip_id , String card_no , String card_holder) {// insert new user (6 parameters)
+        int r=0;
+        sqlQuery = "INSERT INTO RESERVATION (User_id,Trip_id,card_holder,card_number) VALUES ('"+ user_id +"',"+ trip_id +",'"+ card_holder +"','"+ card_no +"');";
+        try{
+            Statement statement = conn.createStatement();
+            r = statement.executeUpdate(sqlQuery);//r is the number of records inserted
+
+        }
+        catch(Exception e){
+            //System.out.print(e);
+            e.printStackTrace();
+        }
+        return r;
+    }
+       
+        //----------------------------- cancel user ticket
+        public boolean deleteTicket(String user_id, int id) {// insert new user (6 parameters)
+        int r=0;
+        sqlQuery = "delete from RESERVATION  where  User_id='"+ user_id +"' AND id="+ id +";";
+        try{
+            Statement statement = conn.createStatement();
+            r = statement.executeUpdate(sqlQuery);//r is the number of records inserted
+
+        }
+        catch(Exception e){
+            //System.out.print(e);
+            e.printStackTrace();return false;
+            
+        }
+        return true;
+    }
+        
+        
       
         //---------------------get user tickets history
         
         public ResultSet getUserTicketHistory(String user_id) {// insert new user (6 parameters)
         //int r = 0 ; 
-        sqlQuery = "select * from TRIP where User_id= '"+user_id+"';";
+        sqlQuery = "select * from RESERVATION where User_id= '"+user_id+"';";
         try{
             preparedStmt = conn.prepareStatement(sqlQuery);
             resultSet = preparedStmt.executeQuery();//r is the number of records inserted
@@ -64,6 +112,8 @@ public class database_conn {
         }
         return resultSet;
     }
+        
+        
         
         
         

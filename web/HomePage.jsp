@@ -55,7 +55,7 @@
 
         <div class="div-bg">
             <img class="form-background" src="images/subway.jpg" width="100%" height="600" alt="alt"/>  
-            <form action="/action_page.php" class="homepage-from">
+            <form action="AvailableTrips.jsp" class="homepage-from">
                
                 <div class="div3">      
                     <span><i style="font-size:24px; color:#1A374D " class="fa">&#xf041;</i></span>  <select class="from">

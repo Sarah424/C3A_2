@@ -21,8 +21,11 @@
 </head>
    <%
         //resultSet.getString("username")
-        String from ="jeddah";
-        String to="riyadh";
+        //get trip parameters from home page
+        String from =request.getParameter("");
+        String to=request.getParameter("");
+        String date=request.getParameter("");
+        String seats =request.getParameter("");
         //String date ="2022-10-10 15:14:23";
         //int seat_no=0;
         dbConn.database_conn sql_Handler = new dbConn.database_conn();
