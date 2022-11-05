@@ -6,7 +6,7 @@
 
 <%@ page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ page language="java" import="java.lang.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,32 +17,31 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="myStyle.css">
     <title>Available Trips</title>
-
+    <script language="javascript">
+    function chooseRecord(id){
+        var f=document.form;
+        f.method="post";
+        f.action='payment.jsp?trip_id='+id;
+        f.submit();
+}
+</script>
 </head>
-   <%
+        <%
         //resultSet.getString("username")
-        //get trip parameters from home page
-        String from =request.getParameter("");
-        String to=request.getParameter("");
-        String date=request.getParameter("");
-        String seats =request.getParameter("");
-        //String date ="2022-10-10 15:14:23";
-        //int seat_no=0;
+        session.setAttribute("id", 11);
+        
+        //get trip attribue to search
+        String from ="jeddah";
+        String to="riyadh";
+        int trip_to_reserve=0;
+        String trip_to_reserve_S = String.valueOf(trip_to_reserve);
+        
         dbConn.database_conn sql_Handler = new dbConn.database_conn();
         ResultSet res_set = sql_Handler.getTrips(from,to);
         %>
 <body>
      
-        <!--
-        get the  paramaters of the trips the user wants
-        search using getTrip() function from dbConn
-        get the result set 
-        show the resultset in while.hasNext loop 
-        and show tripCont and info (html) in each loop(trip)
-        set the bus/eco btns to the trip id
-        ->
-        
- 
+
     <!-------------------------------------HEADER------------------------------------------->
     <div class="header">
         <div class="HeaderContainer">
@@ -71,72 +70,48 @@
 
 
     <!-------------------------------Page Components-------------------------------->
-    <div class="bodyDiv">
-
-       
+    
+    <div class="bodyDiv">  
+    <div class="AT_Cont">
+    <form method="post" name="form">
+    <table class="AT_table">
+        <tr class="AT_header">
+            <th>Date</th>
+            <th>Leaving</th>
+            <th>Arriving</th>
+            <th>Gate</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        
+        <%while(res_set.next()){%>
+        <tr class="AT_content">
+        <td><%=res_set.getString("date")%></td>
+        <td><%=res_set.getString("d_time")%></td>
+        <td><%=res_set.getString("a_time")%></td>
+        <td><%=res_set.getString("gate")%></td>
+        <td><%=res_set.getInt("Price")%> SAR</td>
+        <td><input type="button" name="Select" value="Select" style="width:100px; background-color:white;font-weight:bold;color:black;border-radius: 10px 10px 10px 10px;" onclick="chooseRecord(<%=res_set.getString(1)%>);" ></td>
+        </tr>
         <%
-        while(res_set.next()){
+        }
         %>
-        <!---------------------Trip-->
-        <div class="tripContainer">
-
-            <!------From To------>
-            <div class="tripWay">
-                <p id="tripFrom"><%= res_set.getString("Departure_station")%></p>
-                <i class="material-icons">arrow_forward</i>
-                <p id="tripTo"><%= res_set.getString("Arrival_station")%></p>
-            </div>
-
-            <!------Info Boxes------>
-            <div class="tripInfo">
-                <div class="infoBox">
-                    <!--leaving time-->
-                    <p class="infoMiniTitle">Leaving </p> <br />
-                    <p id="l_time"><%= res_set.getString("d_time")%></p>
-                </div>
-                <div class="infoBox">
-                    <!--arriving time-->
-                    <p class="infoMiniTitle">Arriving</p> <br />
-                    <p id="a_time"><%= res_set.getString("a_time")%></p>
-                </div>
-                <div class="infoBox">
-                    <!--trip date-->
-                    <p class="infoMiniTitle">Date</p><br />
-                    <p id="Tdate"><%= res_set.getString("date")%></p>
-                </div>
-                <div class="infoBox">
-                    <!--trip price-->
-                    <p class="infoMiniTitle">Price</p><br />
-                    <p id="Tprice"><%= res_set.getInt("Price")%></p>
-                    <p id="sar">SAR</p>
-                </div>
-
-            </div>
-
-            <!------BOTTOM BTNS------>
-            <div class="be_btns">
-                <button class="be_button" id="<%= res_set.getInt("id")%>">Select</button>
-            </div>
-
-
-        </div>
-        <!---------Trip END-------->        
-        <% 
-                      }
-    %>
+    </table> 
+    </form>
+    </div> 
+    
     
         <!--NAV BTNS-->
         <div class="navBtns">
-            <button class="back_button" id="back_btn"><i class="material-icons">chevron_left</i>Back</p></button>
-            <button class="next_button" id="next_btn">Choose Return Trip<i class="material-icons">chevron_right</i></button>
+            <button class="back_button" id="back_btn" ><i class="material-icons">chevron_left</i><a href="">Back</a></p></button>
         </div>
-    </div>
-        <% 
-            sql_Handler.close();
-            //<%=res_set.getString("date")
-            //else  out.print("you are not authorized to access these info!!!");
-    %>
+    
+    </div>     
+        
 </body>
 </html>
+ <% 
+            sql_Handler.close();
+        %>
 
 
