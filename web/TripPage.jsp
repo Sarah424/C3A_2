@@ -41,6 +41,12 @@
 
         <%
             }
+  if (request.getParameter("error").equals("1")){
+
+        %>
+        <script>alert("an unexpected error occured. Please try again");</script>
+        <%
+            }
                  }catch(NullPointerException ex ){
                 }
 

@@ -21,7 +21,7 @@
     function chooseRecord(id){
         var f=document.form;
         f.method="post";
-        f.action='payment.jsp?trip_id='+id;
+        f.action='Payment.jsp?trip_id='+id;
         f.submit();
 }
 </script>
@@ -29,7 +29,7 @@
         <%
         //set session attributes    
         //resultSet.getString("username")
-        session.setAttribute("id", 11);
+        //session.setAttribute("id", 11);
         session.setAttribute("first_name", "ahmed");
         session.setAttribute("last_name", "ali");
         

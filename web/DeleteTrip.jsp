@@ -23,9 +23,13 @@
                     Journey.Trip trip = new Journey.Trip();
                     trip.setID(Integer.parseInt(request.getParameter("tripID")));
                     Database.TripController tripController = new Database.TripController();
-                    tripController.deleteTrip(trip);
-                    response.sendRedirect("TripPage.jsp?success=3");
-                    }
+                   int result = tripController.deleteTrip(trip);
+                   if (result == -1 ) {
+                   response.sendRedirect("TripPage.jsp?error=1");
+            } else {
+            response.sendRedirect("TripPage.jsp?success=3");
+            }
+            }
         %>
     </body>
 </html>
