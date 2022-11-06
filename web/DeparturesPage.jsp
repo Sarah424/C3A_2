@@ -23,18 +23,22 @@
 
         <%        
          
-        try {    
-            String otp1 = (String) request.getParameter("first");
-            String otp2 = (String) request.getParameter("second");
-            String otp3 = (String) request.getParameter("third");
-            String otp4 = (String) request.getParameter("fourth");
-            String otpText = otp1 + otp2 + otp3 + otp4;
-            String otp = (String) session.getAttribute("OTP");
-          if (!otpText.equals(otp)) {
-                response.sendRedirect("AdminOTP.jsp?error=1");
+              if (session.getAttribute("username") == null){
+             response.sendRedirect("AdminLoginPage.jsp");
             }
-            } catch(NullPointerException ex) {
-            }
+            
+       // try {    
+         //   String otp1 = (String) request.getParameter("first");
+           // String otp2 = (String) request.getParameter("second");
+          //  String otp3 = (String) request.getParameter("third");
+          //  String otp4 = (String) request.getParameter("fourth");
+          //  String otpText = otp1 + otp2 + otp3 + otp4;
+          //  String otp = (String) session.getAttribute("OTP");
+          //if (!otpText.equals(otp)) {
+           //     response.sendRedirect("AdminOTP.jsp?error=1");
+           // }
+           // } catch(NullPointerException ex) {
+           // }
             
         %>
 
@@ -52,7 +56,7 @@
             <div class="dropdown">
                 <input type="image" name="profile" src="images/profile.png" width="35px" class="dropBtn">
                 <div class="dropdown-content">
-                    <a href="Logout.jsp">Logout</a>
+                    <a href="AdminLogout.jsp">Logout</a>
                 </div>
             </div>
         </nav>
@@ -73,7 +77,8 @@
                 <th>From</th>
                 <th>To</th>
                 <th>Date</th>
-                <th>Time</th>
+                <th>Departures Time</th>
+                <th>Arrival Time</th>
                 <th>Gate</th>
                 <th>Status</th>
             </tr>
@@ -81,14 +86,14 @@
                       Database.TripController trip = new Database.TripController();
                       ResultSet rs = trip.getTrips();
                         while(rs.next()) {
-
             %>
             <tr>
                 <td><%= rs.getString("TripID") %> </td>
                 <td><%= rs.getString("departure_station") %> </td>
                 <td><%= rs.getString("arrival_station") %> </td>
                 <td><%= rs.getString("Date") %> </td>
-                <td><%= rs.getString("time") %> </td>
+                <td><%= rs.getString("departure_time") %> </td>
+                <td><%= rs.getString("arrival_time") %> </td>
                 <td><%= rs.getString("gate") %> </td>
                 <td><%= rs.getString("status") %> </td>
             </tr>

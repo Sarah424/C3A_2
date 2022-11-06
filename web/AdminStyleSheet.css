@@ -375,7 +375,6 @@ hr {
     font-size: 14pt;
 }
 
-
 td {
     border: 1px #DDD solid;
     padding: 5px;
@@ -386,3 +385,39 @@ td {
     background-color: rgba(105,152,171, 0.5);
     color: #FFF;
 }
+
+.time{
+    position: absolute;
+    right: 190px;
+}
+
+.arrTime{
+    position: absolute;
+    left: 1150px;
+    top: 330px;
+}
+
+.depTime{
+    position: absolute;
+    left: 660px;
+    top: 330px;
+}
+
+.arr-time{
+    position: absolute;
+    left: 1370px;
+    top: 320px;
+}
+
+.Dep-time{
+    position: absolute;
+    left: 920px;
+    top: 320px;
+}
+
+
+.status{
+    position: absolute;
+    left: 900px;
+}
+

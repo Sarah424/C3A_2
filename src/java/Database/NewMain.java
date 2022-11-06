@@ -59,12 +59,17 @@ public class NewMain {
 
         SignupController s = new SignupController();
 
-        TripController trip = new TripController();
-        trip.deleteTrip(1);
-        ResultSet rs = trip.getTripInfo(Integer.parseInt("2"));
-
-        //    public int updateTrip(int tripId, String price, String gate, String from, String to, Date date, String time, String status) {
-        System.out.println(trip.updateTrip(2, 20, "g2", "Jeddah", "Riyadh", date, "8:51", "boarding"));
-
+       
+ Journey.Trip trip = new Journey.Trip();
+        
+        
+        
+        //System.out.println(trip.addTrip("riyadh", "jeddah", date, "11:23", "11:40", 20.3, "A2"));
+//        trip.deleteTrip(1);
+//        ResultSet rs = trip.getTripInfo(Integer.parseInt("2"));
+//
+//        //    public int updateTrip(int tripId, String price, String gate, String from, String to, Date date, String time, String status) {
+//SignupController ss = new SignupController ();
+//ss.sendOTP("sara_almeshaal@outlook.com");
     }
 }

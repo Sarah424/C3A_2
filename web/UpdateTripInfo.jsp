@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="Database.TripController"%>
+<%@ page import="Journey.Trip"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,25 +17,35 @@
     <body>
 
         <%
-  try {
-          String from = request.getParameter("city-from");
-            String to = request.getParameter("city-to");
-            Date date = Date.valueOf(request.getParameter("date"));
-            String time = request.getParameter("time");
+      if (session.getAttribute("username") == null){
+             response.sendRedirect("AdminLoginPage.jsp");
+            } else {
+         try {
             String riyal = request.getParameter("riyal") ;
             String halal = "." +  request.getParameter("halal");
             double price = Double.parseDouble(riyal+halal);
-            String gate = request.getParameter("gate");
-            int tripId = Integer.parseInt(request.getParameter("tripID"));
-            Database.TripController trip = new Database.TripController();           
-             int result = trip.updateTrip(tripId, price, gate, from, to, date, time, "on time");
+            
+            Journey.Trip trip = new Journey.Trip();
+            trip.setDepartureStation(request.getParameter("city-from"));
+            trip.setArrivalStation(request.getParameter("city-to"));
+            trip.setArrivalTime(request.getParameter("arrTime"));
+            trip.setDate(Date.valueOf(request.getParameter("date")));
+            trip.setDepartureTime(request.getParameter("depTime"));
+            trip.setGate(request.getParameter("gate"));
+            trip.setPrice(price);
+            trip.setStatus(request.getParameter("status"));
+            trip.setID(Integer.parseInt(request.getParameter("tripID")));
+           
+            Database.TripController tripController = new Database.TripController();           
+             int result = tripController.updateTrip(trip);
             if (result != 1){
                response.sendRedirect("UdpateTripPage.jsp?error=1");
           } else {
                  response.sendRedirect("TripPage.jsp");
             }
             }catch(Exception e){
-            }            
+            }    
+            }
         %>
 
     </body>

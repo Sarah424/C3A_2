@@ -20,7 +20,7 @@
     <body>
 
         <%
-    if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
+    if ( session.getAttribute("username") == null){
        response.sendRedirect("AdminLoginPage.jsp");
       } else {
       try {
@@ -49,7 +49,7 @@
             <div class="dropdown">
                 <input type="image" name="profile" src="images/profile.png" width="35px" class="dropBtn">
                 <div class="dropdown-content">
-                    <a href="Logout.jsp">Logout</a>
+                    <a href="AdminLogout.jsp">Logout</a>
                 </div>
             </div>
         </nav>
@@ -66,11 +66,6 @@
                     <option value="" disabled selected hidden>Select a City</option>
                     <option value="Jeddah">Jeddah</option>
                     <option value="Riyadh">Riyadh</option>
-                    <option value="Abha">Abha</option>
-                    <option value="Dammam">Dammam</option>
-                    <option value="Jizan">Jizan</option>
-                    <option value="Khobar">Khobar</option>
-                    <option value="Medina">Medina</option>
                 </select>
             </div>
 
@@ -80,11 +75,6 @@
                     <option value="" disabled selected hidden>Select a City</option>
                     <option value="Jeddah">Jeddah</option>
                     <option value="Riyadh">Riyadh</option>
-                    <option value="Abha">Abha</option>
-                    <option value="Dammam">Dammam</option>
-                    <option value="Jizan">Jizan</option>
-                    <option value="Khobar">Khobar</option>
-                    <option value="Medina">Medina</option>
                 </select>
             </div>
 
@@ -97,9 +87,14 @@
                 <input type="date" id="date" name="date" class="date" required>
             </div>
 
-            <div class="timediv">
-                <label for="time">Time</label>
-                <input type="time" name="time" id="time" class="time" required>
+            <label for="time" class="depTime">Departure Time</label>
+            <div class="Dep-time">
+                <input type="time" name="depTime" id="depTime" class="time" required>
+            </div>
+
+            <label for="time" class="arrTime">Arrival Time</label>
+            <div class="arr-time">
+                <input type="time" name="arrTime" id="arrTime" class="time" required>
             </div>
 
             <hr>
@@ -138,10 +133,10 @@
             </div>
         </form>
         <script>
-            onclick="tripPage()">
-            function tripPage() {
-                location.replace("TripPage.jsp")
-            }
+            onclick = "tripPage()" >
+                    function tripPage() {
+                        location.replace("TripPage.jsp")
+                    }
         </script>
     </body>
 </html>

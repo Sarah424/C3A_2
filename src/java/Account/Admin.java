@@ -17,6 +17,9 @@ public class Admin extends Account {
         this.isAdmin = isAdmin;
     }
 
+    public Admin() {
+    }
+
     public boolean isIsAdmin() {
         return isAdmin;
     }

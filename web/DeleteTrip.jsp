@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="Database.TripController"%>
 <%@ page import="java.sql.*" %>
+<%@ page import="Journey.Trip"%>
 
 <!DOCTYPE html>
 <html>
@@ -16,10 +17,15 @@
     </head>
     <body>
         <%
-          int tripId = Integer.parseInt(request.getParameter("tripID"));
-          Database.TripController trip = new Database.TripController();
-          trip.deleteTrip(tripId);
-          response.sendRedirect("TripPage.jsp");
+             if ( session.getAttribute("username") == null){
+                     response.sendRedirect("AdminLoginPage.jsp");
+             } else {
+                    Journey.Trip trip = new Journey.Trip();
+                    trip.setID(Integer.parseInt(request.getParameter("tripID")));
+                    Database.TripController tripController = new Database.TripController();
+                    tripController.deleteTrip(trip  );
+                    response.sendRedirect("TripPage.jsp");
+            }
         %>
     </body>
 </html>

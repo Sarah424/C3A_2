@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="Database.TripController"%>
+<%@ page import="Journey.Trip"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,24 +16,38 @@
     </head>
     <body>
         <%
-          try {
-            String from = request.getParameter("city-from");
-            String to = request.getParameter("city-to");
-            Date date = Date.valueOf(request.getParameter("date"));
-            String time = request.getParameter("time");
+ if ( session.getAttribute("username") == null){
+       response.sendRedirect("AdminLoginPage.jsp");
+      } else {          
+try {
             String riyal = request.getParameter("riyal") ;
             String halal = "." +  request.getParameter("halal");
             double price = Double.parseDouble(riyal+halal);
-            String gate = request.getParameter("gate");
-            Database.TripController trip = new Database.TripController();
-            int result = trip.addTrip(from, to, date, time, price, gate);
+            
+            Journey.Trip trip = new Journey.Trip();
+            trip.setDepartureStation(request.getParameter("city-from"));
+            trip.setArrivalStation(request.getParameter("city-to"));
+            trip.setArrivalTime(request.getParameter("arrTime"));
+            trip.setDate(Date.valueOf(request.getParameter("date")));
+            trip.setDepartureTime(request.getParameter("depTime"));
+            trip.setGate(request.getParameter("gate"));
+            trip.setPrice(price);
+            trip.setStatus("On Time");
+            
+            Database.TripController tripController = new Database.TripController();
+            int result = tripController.addTrip(trip);
+            
             if (result != 1){
-               response.sendRedirect("AddTrip.jsp?error=1");
+               response.sendRedirect("AddTripPage.jsp?error=1");
             } else {
-                 response.sendRedirect("TripPage.jsp");
-            }
-            }catch(Exception e){
-            }
+        %>
+        <script>alert("Trip Successfully Added")</script>
+        <%
+             response.sendRedirect("TripPage.jsp");
+        }
+        }catch(Exception e){
+        }
+}
         %>
     </body>
 </html>

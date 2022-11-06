@@ -17,15 +17,19 @@
     <body>
 
         <%  
-         try {
+         if (session.getAttribute("username") == null){
+             response.sendRedirect("AdminLoginPage.jsp");
+            } else {
+            try {
             String adminUsername = (String) session.getAttribute("username");
             if (adminUsername != null ){
                     Database.SignupController loginControl = new Database.SignupController();
-                    String otp = loginControl.sendOTP(loginControl.getAdminEmail(adminUsername)) + "";
-                    session.setAttribute("OTP", otp);
-                    response.sendRedirect("AdminOTP.jsp");
+                  //  String otp = loginControl.sendOTP(loginControl.getAdminEmail(adminUsername)) + "";
+                 //   session.setAttribute("OTP", otp);
+                 //   response.sendRedirect("AdminOTP.jsp");
             }
             } catch(NullPointerException ex){
+            }
             }
         %>
 

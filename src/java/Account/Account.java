@@ -23,6 +23,9 @@ public class Account {
         this.id = id;
     }
 
+    public Account() {
+    }
+
     public String getUsername() {
         return username;
     }

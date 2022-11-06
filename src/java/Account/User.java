@@ -16,7 +16,9 @@ public class User extends Account {
         super(username, fname, lname, email, password, phoneNumber, id);
         this.creditCard = creditCard;
     }
-
+    public User(){
+    }
+    
     public int getCreditCard() {
         return creditCard;
     }

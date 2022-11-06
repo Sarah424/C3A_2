@@ -31,12 +31,15 @@
         }
 
 
-         String username ="", password = "";
+        String username ="", password = "";
         Database.SignupController loginControl = new Database.SignupController();
 
             try {
-             username = request.getParameter("username");
-             password = request.getParameter("password");
+                 Admin admin = new Admin();
+                 admin.setUsername(request.getParameter("username"));
+                 admin.setPassword(request.getParameter("password"));
+                 username = admin.getUsername();
+                 password = admin.getPassword();
 
          if (username == null || password == null){
               response.sendRedirect("AdminLoginPage.jsp?");
@@ -50,15 +53,16 @@
         }
 
         try {
-        if (!loginControl.isAdmin(username)) {
+        if (!loginControl.isAdmin(admin)) {
             response.sendRedirect("AdminLoginPage.jsp?error=2");
-        } else if (!loginControl.isValidAdmin(username, password)) {
+        } else if (!loginControl.isValidAdmin(admin)) {
             response.sendRedirect("AdminLoginPage.jsp?error=3");
         }
                 session.setAttribute("username", username);
                 session.setAttribute("password", password);
-                String otp = loginControl.sendOTP(loginControl.getAdminEmail(username)) + "";
-                session.setAttribute("OTP", otp);
+              //  String otp = loginControl.sendOTP(loginControl.getAdminEmail(username)) + "";
+              //  session.setAttribute("OTP", otp);
+                response.sendRedirect("DeparturesPage.jsp");
             } catch(IllegalStateException ex ){
             }
         }catch(NullPointerException ex ){

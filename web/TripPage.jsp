@@ -20,8 +20,7 @@
     <body>
 
         <%
-          
-               if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
+               if (session.getAttribute("username") == null){
              response.sendRedirect("AdminLoginPage.jsp");
             }
         %>
@@ -39,7 +38,7 @@
             <div class="dropdown">
                 <input type="image" name="profile" src="images/profile.png" width="35px" class="dropBtn">
                 <div class="dropdown-content">
-                    <a href="Logout.jsp">Logout</a>
+                    <a href="AdminLogout.jsp">Logout</a>
                 </div>
             </div>
         </nav>
@@ -59,7 +58,8 @@
                 <th>From</th>
                 <th>To</th>
                 <th>Date</th>
-                <th>Time</th>
+                <th>Departures Time</th>
+                <th>Arrival Time</th>     
                 <th>Gate</th>
                 <th>Status</th>
             </tr>
@@ -75,7 +75,8 @@
                 <td><%= rs.getString("departure_station") %> </td>
                 <td><%= rs.getString("arrival_station") %> </td>
                 <td><%= rs.getString("Date") %> </td>
-                <td><%= rs.getString("time") %> </td>
+                <td><%= rs.getString("departure_time") %> </td>
+                <td><%= rs.getString("arrival_time") %> </td>   
                 <td><%= rs.getString("gate") %> </td>
                 <td><%= rs.getString("status") %> </td>
             </tr>

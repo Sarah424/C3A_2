@@ -17,7 +17,7 @@
 
     <body>
         <%
-if (session.getAttribute("OTP") == null || session.getAttribute("username") == null){
+if (session.getAttribute("username") == null){
 response.sendRedirect("AdminLoginPage.jsp");
 } else {
 try {
@@ -45,7 +45,7 @@ if (request.getParameter("error").equals("1")){
             <div class="dropdown">
                 <input type="image" name="profile" src="images/profile.png" width="35px" class="dropBtn">
                 <div class="dropdown-content">
-                    <a href="Logout.jsp">Logout</a>
+                    <a href="AdminLogout.jsp">Logout</a>
                 </div>
             </div>
         </nav>
@@ -58,29 +58,19 @@ if (request.getParameter("error").equals("1")){
 
             <div class="destination-from">
                 <label for="city-from" class="city-from">From</label>
-                <select name="city-from" id="city-from">
+                <select name="city-from" id="city-from" required>
                     <option value="" disabled selected hidden>Select a City</option>
                     <option value="Jeddah">Jeddah</option>
                     <option value="Riyadh">Riyadh</option>
-                    <option value="Abha">Abha</option>
-                    <option value="Dammam">Dammam</option>
-                    <option value="Jizan">Jizan</option>
-                    <option value="Khobar">Khobar</option>
-                    <option value="Medina">Medina</option>
                 </select>
             </div>
 
             <div class="destination-to">
                 <label for="city-to">To</label>
-                <select name="city-to" placeholder="Choose" id="city-to">
+                <select name="city-to" id="city-to" placeholder="Choose" required>
                     <option value="" disabled selected hidden>Select a City</option>
                     <option value="Jeddah">Jeddah</option>
                     <option value="Riyadh">Riyadh</option>
-                    <option value="Abha">Abha</option>
-                    <option value="Dammam">Dammam</option>
-                    <option value="Jizan">Jizan</option>
-                    <option value="Khobar">Khobar</option>
-                    <option value="Medina">Medina</option>
                 </select>
             </div>
 
@@ -93,9 +83,14 @@ if (request.getParameter("error").equals("1")){
                 <input type="date" name="date" class="date" id="date">
             </div>
 
-            <div class="timediv">
-                <label for="time">Time</label>
-                <input type="time" name="time" class="time" id="time">
+            <label for="time" class="depTime">Departure Time</label>
+            <div class="Dep-time">
+                <input type="time" name="depTime" id="depTime" class="time" required>
+            </div>
+
+            <label for="time" class="arrTime">Arrival Time</label>
+            <div class="arr-time">
+                <input type="time" name="arrTime" id="arrTime" class="time" required>
             </div>
 
             <hr>
@@ -107,7 +102,17 @@ if (request.getParameter("error").equals("1")){
                 <input type="number" min="1" step="any"  class="economic" name="riyal" id="riyal"/>
                 .
                 <input type="number" min="0" step="any" class="economic" name="halal" id="halal"/>
+            </div>
 
+            <div class="status">
+                <label for="status" class="statusLabel">Status</label>
+                <select name="status" id="status" placeholder="Choose" required>
+                    <option value="" disabled selected hidden>Select a Status</option>
+                    <option value="On Time">On Time</option>
+                    <option value="Delayed">Delayed</option>
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Boarding">Boarding</option>
+                </select>
             </div>
 
             <hr>
@@ -143,10 +148,12 @@ if (request.getParameter("error").equals("1")){
             document.getElementById("city-from").value = url.searchParams.get("city-from");
             document.getElementById("city-to").value = url.searchParams.get("city-to");
             document.getElementById("date").value = url.searchParams.get("date");
-            document.getElementById("time").value = url.searchParams.get("time");
+            document.getElementById("depTime").value = url.searchParams.get("depTime");
+            document.getElementById("arrTime").value = url.searchParams.get("arrTime");
             document.getElementById("gate").value = url.searchParams.get("gate");
             document.getElementById("riyal").value = parseInt(riyal);
             document.getElementById("halal").value = parseInt(halal);
+            document.getElementById("status").value = url.searchParams.get("status");
             document.getElementById("tripID").value = url.searchParams.get("tripID");
 
             function tripPage() {
