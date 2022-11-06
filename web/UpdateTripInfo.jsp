@@ -41,7 +41,7 @@
             if (result != 1){
                response.sendRedirect("UdpateTripPage.jsp?error=1");
           } else {
-                 response.sendRedirect("TripPage.jsp");
+             response.sendRedirect("TripPage.jsp?success=2");
             }
             }catch(Exception e){
             }    

@@ -103,9 +103,9 @@
 
             <div class="price-economic">
                 <label for="economic">Price</label>
-                <input type="number" min="1" step="any" name="riyal" id="economic" class="economic" required/>
+                <input type="number" min="1" step="any" value=0 name="riyal" id="economic" class="economic" required/>
                 .
-                <input type="number" min="0" step="any" name="halal" class="economic" required/>
+                <input type="number" min="0" step="any" value=0 name="halal" class="economic" required/>
 
             </div>
 
@@ -133,7 +133,6 @@
             </div>
         </form>
         <script>
-            onclick = "tripPage()" >
                     function tripPage() {
                         location.replace("TripPage.jsp")
                     }

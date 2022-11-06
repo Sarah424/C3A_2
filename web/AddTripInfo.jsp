@@ -43,7 +43,7 @@ try {
         %>
         <script>alert("Trip Successfully Added")</script>
         <%
-             response.sendRedirect("TripPage.jsp");
+             response.sendRedirect("TripPage.jsp?success=1");
         }
         }catch(Exception e){
         }

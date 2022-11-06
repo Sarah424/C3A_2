@@ -4,6 +4,7 @@
  */
 package Database;
 
+import Account.Admin;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -23,11 +24,11 @@ public class SignupController {
     private static Statement st = null;
     private static ResultSet rs = null;
 
-    public boolean isAdmin(String username) {
+    public boolean isAdmin(Admin admin) {
         boolean isUser = false;
         try {
             st = con.createStatement();
-            rs = st.executeQuery("SELECT username FROM admin WHERE username = '" + username + "'");
+            rs = st.executeQuery("SELECT username FROM admin WHERE username = '" + admin.getUsername() + "'");
             if (rs.next()) {
                 isUser = true;
             }
@@ -36,12 +37,12 @@ public class SignupController {
         return isUser;
     }
 
-    public boolean isValidAdmin(String username, String password) {
+    public boolean isValidAdmin(Admin admin) {
         boolean isValid = false;
         try {
             st = con.createStatement();
-            rs = st.executeQuery("SELECT username, password FROM admin WHERE username = '" + username
-                    + "' AND password ='" + passwordHash(password) + "'");
+            rs = st.executeQuery("SELECT username, password FROM admin WHERE username = '" + admin.getUsername()
+                    + "' AND password ='" + passwordHash(admin.getPassword()) + "'");
             if (rs.next()) {
                 isValid = true;
             }
@@ -50,10 +51,10 @@ public class SignupController {
         return isValid;
     }
 
-    public String getAdminEmail(String username) {
+    public String getAdminEmail(Admin admin) {
         try {
             st = con.createStatement();
-            rs = st.executeQuery("SELECT Email FROM admin WHERE username = '" + username + "'");
+            rs = st.executeQuery("SELECT Email FROM admin WHERE username = '" + admin.getUsername() + "'");
             if (rs.next()) {
                 return rs.getString("email");
             }

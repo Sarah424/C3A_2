@@ -35,7 +35,7 @@
         Database.SignupController loginControl = new Database.SignupController();
 
             try {
-                 Admin admin = new Admin();
+                 Account.Admin admin = new Account.Admin();
                  admin.setUsername(request.getParameter("username"));
                  admin.setPassword(request.getParameter("password"));
                  username = admin.getUsername();
@@ -60,7 +60,7 @@
         }
                 session.setAttribute("username", username);
                 session.setAttribute("password", password);
-              //  String otp = loginControl.sendOTP(loginControl.getAdminEmail(username)) + "";
+              //  String otp = loginControl.sendOTP(loginControl.getAdminEmail(admin)) + "";
               //  session.setAttribute("OTP", otp);
                 response.sendRedirect("DeparturesPage.jsp");
             } catch(IllegalStateException ex ){

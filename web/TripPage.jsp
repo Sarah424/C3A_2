@@ -20,9 +20,22 @@
     <body>
 
         <%
-               if (session.getAttribute("username") == null){
+       try {
+            if (session.getAttribute("username") == null){
              response.sendRedirect("AdminLoginPage.jsp");
+            } 
+      if (request.getParameter("success").equals("1")){
+        %>
+        <script>alert("Trip was Successfully Added");</script>
+        <%
+            } else if (request.getParameter("success").equals("2")){
+        %>
+        <script>alert("Trip was Successfully Updated");</script>
+        <%
             }
+         }catch(NullPointerException ex ){
+        }
+
         %>
         <nav class="navbar">
             <div class="logo">
@@ -112,7 +125,14 @@
         })(i);
 
     function deleteTrip() {
-        location.replace("DeleteTrip.jsp?tripID=" + id)
+        if (id) {
+            var answer = confirm("Do you want to remove this trip ?\nTrip ID: " + id);
+            if (answer == true) {
+                location.replace("DeleteTrip.jsp?tripID=" + id)
+            }
+        } else {
+            alert("Please choose a trip to delete");
+        }
     }
 
     function addTripPage() {

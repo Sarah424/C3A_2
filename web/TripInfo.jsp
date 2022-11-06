@@ -33,6 +33,5 @@
                     "&status=" + rs.getString("status") + "&tripID=" + trip.getID());
             }
         %>
-
     </body>
 </html>
