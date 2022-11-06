@@ -64,9 +64,9 @@ public class database_conn {
         
         //-----------------------------pay ticket for user
         
-        public int bookTicket(String user_id, int trip_id) {// insert new user (6 parameters)
+        public int bookTicket(int user_id, int trip_id) {// insert new user (6 parameters)
         int r=0;
-        sqlQuery = "INSERT INTO RESERVATION (user_id,trip_id) VALUES ('"+ user_id +"',"+ trip_id +");";
+        sqlQuery = "INSERT INTO RESERVATION (trip_id,user_id) VALUES ("+ trip_id +","+ user_id +");";
         try{
             Statement statement = conn.createStatement();
             r = statement.executeUpdate(sqlQuery);//r is the number of records inserted
@@ -75,6 +75,7 @@ public class database_conn {
         catch(Exception e){
             //System.out.print(e);
             e.printStackTrace();
+            return 0;
         }
         return r;
     }

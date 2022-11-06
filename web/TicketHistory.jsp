@@ -110,7 +110,7 @@ session.setAttribute("last_name", "ali");
                            
                             
         <input type="button" name="show" value="show" style="width:100px; background-color:white;font-weight:bold;color:black;border-radius: 10px 10px 10px 10px;" onclick="showTicket(<%=rsltst.getString("Trip_id")%>);" >   
-        <% if(rsl_tst.getString("status").toString().Equals("on_time")){ %>
+        <% if(rsl_tst.getString("status").toString().Equals("On_Time")){ %>
         <input type="button" name="cancel" value="cancel" style="width:100px; background-color:white;font-weight:bold;color:black;border-radius: 10px 10px 10px 10px;" onclick="deleteTicket(<%=rsltst.getString("id")%>);" >
         }%>                  
                         </td>

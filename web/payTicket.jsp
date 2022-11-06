@@ -30,7 +30,7 @@
                     boolean nameValid = card.cardValidation.isName(card_holder);
                         if( cradValid && ccvValid && nameValid ){
                         dbConn.database_conn  sql_Handler = new dbConn.database_conn();
-                        int booked = sql_Handler.bookTicket( session.getAttribute("id").toString(), trip_id);
+                        int booked = sql_Handler.bookTicket((int)(session.getAttribute("id").toString()), trip_id);
                             if(booked>0) {//out.print("success , trip : "+trip_id+" , user : "+session.getAttribute("id").toString());
                             response.sendRedirect("successPayment.jsp");
                             }
