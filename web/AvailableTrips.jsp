@@ -27,14 +27,15 @@
 </script>
 </head>
         <%
+        //set session attributes    
         //resultSet.getString("username")
         session.setAttribute("id", 11);
+        session.setAttribute("first_name", "ahmed");
+        session.setAttribute("last_name", "ali");
         
         //get trip attribue to search
         String from ="jeddah";
         String to="riyadh";
-        int trip_to_reserve=0;
-        String trip_to_reserve_S = String.valueOf(trip_to_reserve);
         
         dbConn.database_conn sql_Handler = new dbConn.database_conn();
         ResultSet res_set = sql_Handler.getTrips(from,to);
@@ -49,9 +50,12 @@
             <p id="systemTitle">Railway Booking System</p>
 
 
-            <a href="#" class="signUpBtn">Register</a>
+            <p class="userWelcomeMsg">Welcome, <%= session.getAttribute("first_name").toString()%>  <%= session.getAttribute("last_name").toString()%></p>
 
-            <a href="#" class="loginBtn">Login</a>
+
+            <!--<a href="#" class="signUpBtn">Register</a>
+
+            <a href="#" class="loginBtn">Login</a> -->
 
         </div>
 
@@ -71,7 +75,12 @@
 
     <!-------------------------------Page Components-------------------------------->
     
-    <div class="bodyDiv">  
+    <div class="bodyDiv"> 
+        <!--NAV BTNS-->
+        <div class="navBtns">
+            <button class="back_button" id="back_btn" ><i class="material-icons">chevron_left</i><a href="HomePage.jsp">Back</a></p></button>
+        </div>
+        <h3><%=from%> >> <%=to%></h3>
     <div class="AT_Cont">
     <form method="post" name="form">
     <table class="AT_table">
@@ -87,10 +96,10 @@
         <%while(res_set.next()){%>
         <tr class="AT_content">
         <td><%=res_set.getString("date")%></td>
-        <td><%=res_set.getString("d_time")%></td>
-        <td><%=res_set.getString("a_time")%></td>
+        <td><%=res_set.getString("departure_time")%></td>
+        <td><%=res_set.getString("arrival_time")%></td>
         <td><%=res_set.getString("gate")%></td>
-        <td><%=res_set.getInt("Price")%> SAR</td>
+        <td><%=res_set.getInt("price")%> SAR</td>
         <td><input type="button" name="Select" value="Select" style="width:100px; background-color:white;font-weight:bold;color:black;border-radius: 10px 10px 10px 10px;" onclick="chooseRecord(<%=res_set.getString(1)%>);" ></td>
         </tr>
         <%
@@ -101,10 +110,7 @@
     </div> 
     
     
-        <!--NAV BTNS-->
-        <div class="navBtns">
-            <button class="back_button" id="back_btn" ><i class="material-icons">chevron_left</i><a href="">Back</a></p></button>
-        </div>
+        
     
     </div>     
         

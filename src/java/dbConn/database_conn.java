@@ -37,7 +37,7 @@ public class database_conn {
 
         //------------------------search for available trips 
         public ResultSet getTrips(String from, String to) {
-        sqlQuery = "SELECT * FROM TRIP WHERE Departure_station= '" +from + "' AND Arrival_station= '" +to + "';";
+        sqlQuery = "SELECT * FROM TRIP WHERE departure_station= '" +from + "' AND Arrival_station= '" +to + "';";
         try{
             preparedStmt = conn.prepareStatement(sqlQuery);
             resultSet = preparedStmt.executeQuery();
@@ -62,9 +62,9 @@ public class database_conn {
         
         //-----------------------------pay ticket for user
         
-        public int bookTicket(String user_id, int trip_id , String card_no , String card_holder) {// insert new user (6 parameters)
+        public int bookTicket(String user_id, int trip_id) {// insert new user (6 parameters)
         int r=0;
-        sqlQuery = "INSERT INTO RESERVATION (User_id,Trip_id,card_holder,card_number) VALUES ('"+ user_id +"',"+ trip_id +",'"+ card_holder +"','"+ card_no +"');";
+        sqlQuery = "INSERT INTO RESERVATION (user_id,trip_id) VALUES ('"+ user_id +"',"+ trip_id +");";
         try{
             Statement statement = conn.createStatement();
             r = statement.executeUpdate(sqlQuery);//r is the number of records inserted
@@ -80,7 +80,7 @@ public class database_conn {
         //----------------------------- cancel user ticket
         public boolean deleteTicket(String user_id, int id) {// insert new user (6 parameters)
         int r=0;
-        sqlQuery = "delete from RESERVATION  where  User_id='"+ user_id +"' AND id="+ id +";";
+        sqlQuery = "delete from RESERVATION  where  user_id='"+ user_id +"' AND id="+ id +";";
         try{
             Statement statement = conn.createStatement();
             r = statement.executeUpdate(sqlQuery);//r is the number of records inserted
@@ -100,7 +100,7 @@ public class database_conn {
         
         public ResultSet getUserTicketHistory(String user_id) {// insert new user (6 parameters)
         //int r = 0 ; 
-        sqlQuery = "select * from RESERVATION where User_id= '"+user_id+"';";
+        sqlQuery = "select * from RESERVATION where user_id= '"+user_id+"';";
         try{
             preparedStmt = conn.prepareStatement(sqlQuery);
             resultSet = preparedStmt.executeQuery();//r is the number of records inserted

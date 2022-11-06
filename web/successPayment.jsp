@@ -24,7 +24,7 @@
                 <p> Payment Success</p>
                 <H5>you can view your ticket in the ticket history</H5>
                 <br>
-                <form method="post" action="homepage.jsp">
+                <form method="post" action="HomePage.jsp">
                     <input type="submit" name="ok" value="OK" 
                            style="width:160px; height:40px;
                            background-color:#1A374D;font-weight:bold;color:white;border-radius: 30px 30px 30px 30px;" >

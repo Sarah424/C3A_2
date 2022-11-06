@@ -56,10 +56,10 @@ page language="java"%>
                 <h5 class="pay_label">Trip Ticket information :</h5>    
                 <div class="tripInfoPay">  
                 Date:<span>&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;<%=""+rsltst.getString("date")%></span><br>
-                Leaving Time:<span>&emsp;<%= "               "+rsltst.getString("d_time")%></span><br>
-                Arriving Time:<span>&emsp;<%= "              "+rsltst.getString("a_time")%></span><br>
+                Leaving Time:<span>&emsp;<%= "               "+rsltst.getString("departure_time")%></span><br>
+                Arriving Time:<span>&emsp;<%= "              "+rsltst.getString("arrival_time")%></span><br>
                 Gate number:<span>&emsp;<%="                 "+rsltst.getString("gate")%></span><br><br>
-                Price:&emsp;&emsp;<span><%=" "+rsltst.getString("Price")+" "%></span>SAR
+                Price:&emsp;&emsp;<span><%=" "+rsltst.getString("price")+" "%></span>SAR
                 </div>
                    
                 <%}
