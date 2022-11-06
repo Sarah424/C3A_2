@@ -35,6 +35,8 @@
         session.setAttribute("first_name", "ahmed");
         session.setAttribute("last_name", "ali");
         
+        
+        if(session.getAttribute("id")!=null){
         //get trip attribue to search
         //String from ="jeddah";
         //String to="riyadh";
@@ -42,6 +44,7 @@
         String from = request.getParameter("from");
         String to = request.getParameter("to");
         String date = request.getParameter("date");
+        if(!from.isEmpty() && !to.isEmpty() &&!date.isEmpty() ){
         dbConn.database_conn sql_Handler = new dbConn.database_conn();
         ResultSet res_set = sql_Handler.getTrips(from,to,date);
         %>
@@ -115,14 +118,27 @@
     </div> 
     
     
-        
+        <% 
+            sql_Handler.close();
+     }
+else{out.print("please enter trip information");
+%>
+<p style="color:white; font-size:30px;">please enter trip information</p>
+<a href="HomePage.jsp">back</a>
+<%
+
+    }
+
+}
+else{
+out.print("you are not authorised");
+}
+        %>
+ 
     
     </div>     
         
 </body>
 </html>
- <% 
-            sql_Handler.close();
-        %>
 
 
