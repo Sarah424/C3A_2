@@ -55,14 +55,22 @@
 
         <div class="div-bg">
             <img class="form-background" src="images/subway.jpg" width="100%" height="600" alt="alt"/>  
+            
+            
             <form action="AvailableTrips.jsp" method="post" class="homepage-from">
                
                 <div class="div3">      
-                    <span><i style="font-size:24px; color:#1A374D " class="fa">&#xf041;</i></span>  <select name="from" class="from">
+                    <span><i style="font-size:24px; color:#1A374D " class="fa">&#xf041;</i></span>  
+                    
+                    <select name="from" class="from">
                         <option value="Riyadh" selected>Riyadh</option>
                         <option value="Jeddah">Jeddah</option>
                     </select><br><br>
-                    <span><i style="font-size:24px; color:#1A374D " class="fa">&#xf041;</i></span>  <select name="to" class="from">
+                    
+                    
+                    <span><i style="font-size:24px; color:#1A374D " class="fa">&#xf041;</i></span>  
+                    
+                    <select name="to" class="from">
                         <option value="" selected>Select Arrival</option>
                         <option value="Riyadh">Riyadh</option>
                         <option value="Jeddah">Jeddah</option>
@@ -70,12 +78,16 @@
                 </div>
                 
                 <div class="div3"> 
+                    <!--
                     <div class="passengers">
                         <span>&plus;</span>
                         <span id="count">0</span> Passengers</div>
                     <span  ><input class="plus" type="button" onClick="increment()" value="&plus;"/></span>
                     <span  ><input class="minus" type="button" onClick="decrement()" value="&minus;"/></span>
+                    -->
                     <br><br>
+                    
+                    
 <div class="passengers">
                         <span>Depart: </span>
                         <input type="date" name="date" class="datePicker" name="depart"

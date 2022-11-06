@@ -31,7 +31,7 @@
         <%
         //set session attributes    
         //resultSet.getString("username")
-        //session.setAttribute("id", 11);
+        session.setAttribute("id", 10);
         session.setAttribute("first_name", "ahmed");
         session.setAttribute("last_name", "ali");
         
@@ -39,8 +39,8 @@
         //String from ="jeddah";
         //String to="riyadh";
         
-        String from = request.getParameterValue("from");
-        String to = request.getParameterValue("to");
+        String from = request.getParameter("from");
+        String to = request.getParameter("to");
         String date = request.getParameter("date");
         dbConn.database_conn sql_Handler = new dbConn.database_conn();
         ResultSet res_set = sql_Handler.getTrips(from,to,date);
