@@ -21,20 +21,29 @@
 
         <%
        try {
-            if (session.getAttribute("username") == null){
+             if (session.getAttribute("username") == null && session.getAttribute("password") == null){
              response.sendRedirect("AdminLoginPage.jsp");
             } 
       if (request.getParameter("success").equals("1")){
         %>
         <script>alert("Trip was Successfully Added");</script>
         <%
-            } else if (request.getParameter("success").equals("2")){
+            } 
+            if (request.getParameter("success").equals("2")){
         %>
         <script>alert("Trip was Successfully Updated");</script>
         <%
             }
-         }catch(NullPointerException ex ){
-        }
+             if (request.getParameter("success").equals("3")){
+
+        %>
+        <script>alert("Trip Successfully Deleted")</script>
+
+        <%
+            }
+                 }catch(NullPointerException ex ){
+                }
+
 
         %>
         <nav class="navbar">

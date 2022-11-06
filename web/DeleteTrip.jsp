@@ -17,15 +17,15 @@
     </head>
     <body>
         <%
-             if ( session.getAttribute("username") == null){
+             if (session.getAttribute("username") == null && session.getAttribute("password") == null){
                      response.sendRedirect("AdminLoginPage.jsp");
              } else {
                     Journey.Trip trip = new Journey.Trip();
                     trip.setID(Integer.parseInt(request.getParameter("tripID")));
                     Database.TripController tripController = new Database.TripController();
-                    tripController.deleteTrip(trip  );
-                    response.sendRedirect("TripPage.jsp");
-            }
+                    tripController.deleteTrip(trip);
+                    response.sendRedirect("TripPage.jsp?success=3");
+                    }
         %>
     </body>
 </html>

@@ -16,7 +16,7 @@
     </head>
     <body>
         <%
- if ( session.getAttribute("username") == null){
+             if (session.getAttribute("username") == null && session.getAttribute("password") == null){
        response.sendRedirect("AdminLoginPage.jsp");
       } else {          
 try {
