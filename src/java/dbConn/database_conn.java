@@ -36,8 +36,8 @@ public class database_conn {
   
 
         //------------------------search for available trips 
-        public ResultSet getTrips(String from, String to) {
-        sqlQuery = "SELECT * FROM TRIP WHERE departure_station= '" +from + "' AND Arrival_station= '" +to + "';";
+        public ResultSet getTrips(String from, String to, String date) {
+        sqlQuery = "SELECT * FROM TRIP WHERE departure_station= '" +from + "' AND arrival_station= '" +to + "' AND date='"+ date +"' ;";
         try{
             preparedStmt = conn.prepareStatement(sqlQuery);
             resultSet = preparedStmt.executeQuery();
@@ -47,6 +47,8 @@ public class database_conn {
         }
         return resultSet;
     }
+        
+        //-----------------------get trip info
         
         public ResultSet getTrip(int id) {
         sqlQuery = "SELECT * FROM TRIP WHERE id= " +id + ";";

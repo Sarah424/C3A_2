@@ -73,7 +73,7 @@ session.setAttribute("last_name", "ali");
 
 
         <div class="THnav">
-            <button class="THback_btn" id="back_btn"><i class="material-icons">chevron_left</i><a href='AvailableTrips.jsp'>back</a></p></button>
+            <button class="THback_btn" id="back_btn"><i class="material-icons">chevron_left</i><a href=HomePage.jsp'>back</a></p></button>
         </div>
 
 
@@ -108,9 +108,11 @@ session.setAttribute("last_name", "ali");
                         <td id="time"><%=rsl_tst.getString("d_time") %> - <%=rsl_tst.getString("a_time") %> </td>
                         <td id="options" >
                            
-        <input type="button" name="show" value="show" style="width:100px; background-color:white;font-weight:bold;color:black;border-radius: 10px 10px 10px 10px;" onclick="showTicket(<%=rsltst.getString("Trip_id")%>);" >              
+                            
+        <input type="button" name="show" value="show" style="width:100px; background-color:white;font-weight:bold;color:black;border-radius: 10px 10px 10px 10px;" onclick="showTicket(<%=rsltst.getString("Trip_id")%>);" >   
+        <% if(rsl_tst.getString("status").toString().Equals("on_time")){ %>
         <input type="button" name="cancel" value="cancel" style="width:100px; background-color:white;font-weight:bold;color:black;border-radius: 10px 10px 10px 10px;" onclick="deleteTicket(<%=rsltst.getString("id")%>);" >
-                          
+        }%>                  
                         </td>
                     </tr>
                     

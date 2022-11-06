@@ -7,6 +7,8 @@
 <%@ page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.lang.*" %>
+
+<%@ page import="java.io.*" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,11 +36,14 @@
         session.setAttribute("last_name", "ali");
         
         //get trip attribue to search
-        String from ="jeddah";
-        String to="riyadh";
+        //String from ="jeddah";
+        //String to="riyadh";
         
+        String from = request.getParameterValue("from");
+        String to = request.getParameterValue("to");
+        String date = request.getParameter("date");
         dbConn.database_conn sql_Handler = new dbConn.database_conn();
-        ResultSet res_set = sql_Handler.getTrips(from,to);
+        ResultSet res_set = sql_Handler.getTrips(from,to,date);
         %>
 <body>
      
