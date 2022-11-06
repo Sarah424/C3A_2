@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Database;
+package Account;
 
-import Account.Admin;
+import Database.DBConnector;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -61,6 +61,19 @@ public class SignupController {
         } catch (SQLException ex) {
         }
         return "";
+    }
+    
+    
+    public int getAdminId(Admin admin) {
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT ID FROM admin WHERE username = '" + admin.getUsername() + "'");
+            if (rs.next()) {
+                return rs.getInt("ID");
+            }
+        } catch (SQLException ex) {
+        }
+        return -1;
     }
 
     public String passwordHash(String password) {

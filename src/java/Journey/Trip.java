@@ -12,13 +12,12 @@ import java.sql.Date;
  */
 public class Trip {
 
-    //public int updateTrip(int tripId, double price, String gate, String from, String to, Date date, String depTime, String arrTime, String status) {
-    private int id;
+    private int id, adminId;
     private String gate, departureStation, arrivalStation, departureTime, arrivalTime, status;
     private Date date;
     private double price;
 
-    public Trip(int id, String gate, String departureStation, String arrivalStation, String departureTime, String arrivalTime, String status, Date date, double price) {
+    public Trip(int id, int adminId, String gate, String departureStation, String arrivalStation, String departureTime, String arrivalTime, String status, Date date, double price) {
         this.id = id;
         this.gate = gate;
         this.departureStation = departureStation;
@@ -28,6 +27,7 @@ public class Trip {
         this.status = status;
         this.date = date;
         this.price = price;
+        this.adminId = adminId;
     }
 
     public Trip() {
@@ -41,6 +41,24 @@ public class Trip {
         this.id = id;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
+    }
+
+    
+    
     public String getGate() {
         return gate;
     }

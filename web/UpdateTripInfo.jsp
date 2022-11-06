@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ page import="Database.TripController"%>
+<%@ page import="Journey.TripController"%>
 <%@ page import="Journey.Trip"%>
 <!DOCTYPE html>
 <html>
@@ -35,8 +35,9 @@
             trip.setPrice(price);
             trip.setStatus(request.getParameter("status"));
             trip.setID(Integer.parseInt(request.getParameter("tripID")));
-           
-            Database.TripController tripController = new Database.TripController();           
+            trip.setAdminId((Integer) session.getAttribute("adminID"));
+
+            Journey.TripController tripController = new Journey.TripController();           
              int result = tripController.updateTrip(trip);
             if (result != 1){
                response.sendRedirect("UdpateTripPage.jsp?error=1");

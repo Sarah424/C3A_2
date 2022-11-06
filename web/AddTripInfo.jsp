@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ page import="Database.TripController"%>
+<%@ page import="Journey.TripController"%>
 <%@ page import="Journey.Trip"%>
 <!DOCTYPE html>
 <html>
@@ -33,8 +33,9 @@ try {
             trip.setGate(request.getParameter("gate"));
             trip.setPrice(price);
             trip.setStatus("On Time");
+            trip.setAdminId((Integer) session.getAttribute("adminID"));
             
-            Database.TripController tripController = new Database.TripController();
+            Journey.TripController tripController = new Journey.TripController();
             int result = tripController.addTrip(trip);
             
             if (result != 1){

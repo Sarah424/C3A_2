@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ page import="Database.TripController"%>
+<%@ page import="Journey.TripController"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,12 +83,12 @@
                 <th>Status</th>
             </tr>
             <% 
-                      Database.TripController trip = new Database.TripController();
+                      Journey.TripController trip = new Journey.TripController();
                       ResultSet rs = trip.getTrips();
                         while(rs.next()) {
             %>
             <tr>
-                <td><%= rs.getString("TripID") %> </td>
+                <td><%= rs.getString("id") %> </td>
                 <td><%= rs.getString("departure_station") %> </td>
                 <td><%= rs.getString("arrival_station") %> </td>
                 <td><%= rs.getString("Date") %> </td>

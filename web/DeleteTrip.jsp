@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="Database.TripController"%>
+<%@ page import="Journey.TripController"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="Journey.Trip"%>
 
@@ -22,7 +22,7 @@
              } else {
                     Journey.Trip trip = new Journey.Trip();
                     trip.setID(Integer.parseInt(request.getParameter("tripID")));
-                    Database.TripController tripController = new Database.TripController();
+                    Journey.TripController tripController = new Journey.TripController();
                    int result = tripController.deleteTrip(trip);
                    if (result == -1 ) {
                    response.sendRedirect("TripPage.jsp?error=1");

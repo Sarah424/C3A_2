@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="Account.Admin"%>
-<%@ page import="Database.SignupController"%>
+<%@ page import="Account.SignupController"%>
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,7 @@
 
 
         String username ="", password = "";
-        Database.SignupController loginControl = new Database.SignupController();
+        Account.SignupController loginControl = new Account.SignupController();
 
             try {
                  Account.Admin admin = new Account.Admin();
@@ -58,6 +58,8 @@
         } else if (!loginControl.isValidAdmin(admin)) {
             response.sendRedirect("AdminLoginPage.jsp?error=3");
         }
+                admin.setId(loginControl.getAdminId(admin));
+                session.setAttribute("adminID", admin.getId());
                 session.setAttribute("username", username);
                 session.setAttribute("password", password);
               //  String otp = loginControl.sendOTP(loginControl.getAdminEmail(admin)) + "";

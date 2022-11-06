@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ page import="Database.TripController"%>
+<%@ page import="Journey.TripController"%>
 <%@ page import="Journey.Trip"%>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@
              if (session.getAttribute("username") == null && session.getAttribute("password") == null){
              response.sendRedirect("AdminLoginPage.jsp");
             } else {
-            Database.TripController tripController = new Database.TripController();
+            Journey.TripController tripController = new Journey.TripController();
             Journey.Trip trip = new Journey.Trip();
             trip.setID(Integer.parseInt(request.getParameter("tripID")));
             ResultSet rs = tripController.getTripInfo(trip);
