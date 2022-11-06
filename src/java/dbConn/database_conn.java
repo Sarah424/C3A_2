@@ -81,9 +81,9 @@ public class database_conn {
     }
        
         //----------------------------- cancel user ticket
-        public boolean deleteTicket(String user_id, int id) {// insert new user (6 parameters)
+        public boolean deleteTicket(int user_id, int id) {// insert new user (6 parameters)
         int r=0;
-        sqlQuery = "delete from RESERVATION  where  user_id='"+ user_id +"' AND id="+ id +";";
+        sqlQuery = "delete from RESERVATION  where  user_id="+ user_id +" AND id="+ id +";";
         try{
             Statement statement = conn.createStatement();
             r = statement.executeUpdate(sqlQuery);//r is the number of records inserted
@@ -101,9 +101,9 @@ public class database_conn {
       
         //---------------------get user tickets history
         
-        public ResultSet getUserTicketHistory(String user_id) {// insert new user (6 parameters)
+        public ResultSet getUserTicketHistory(int user_id) {// insert new user (6 parameters)
         //int r = 0 ; 
-        sqlQuery = "select * from RESERVATION where user_id= '"+user_id+"';";
+        sqlQuery = "select * from RESERVATION where user_id= "+user_id+";";
         try{
             preparedStmt = conn.prepareStatement(sqlQuery);
             resultSet = preparedStmt.executeQuery();//r is the number of records inserted

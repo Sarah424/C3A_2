@@ -22,7 +22,7 @@
         if(session.getAttribute("id") != null && session.getAttribute("trip_id") != null){ 
                 
                         dbConn.database_conn  sql_Handler = new dbConn.database_conn();
-                        boolean deleted = sql_Handler.deleteTicket( session.getAttribute("id").toString(),ticket_id );
+                        boolean deleted = sql_Handler.deleteTicket( Integer.parseInt(session.getAttribute("id").toString()),ticket_id );
                         
                         response.sendRedirect("TicketHistory.jsp");  
             }

@@ -39,7 +39,7 @@ session.setAttribute("last_name", "ali");
 //String id= "1";
  if(session.getAttribute("id") != null ){
                     dbConn.database_conn sql_Handler = new dbConn.database_conn();// conn (folder_name.java_class_name) 
-                    ResultSet rsltst = sql_Handler.getUserTicketHistory(session.getAttribute("id").toString());//result obj (to get my method, my vars from db are stored in this obj)
+                    ResultSet rsltst = sql_Handler.getUserTicketHistory(Integer.parseInt(session.getAttribute("id").toString());//result obj (to get my method, my vars from db are stored in this obj)
 
 %>
 <body>
