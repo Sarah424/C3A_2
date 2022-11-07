@@ -31,7 +31,7 @@
                 </form>
                 
         <% session.setAttribute("trip_id","");
-        session.invalidate();%>
+        response.sendRedirect("logout.jsp");%>
             </div>
             
         </div>
