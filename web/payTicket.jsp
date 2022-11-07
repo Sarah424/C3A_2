@@ -20,7 +20,9 @@
             if(session.getAttribute("id") != null && session.getAttribute("trip_id") != null){ 
                 String card_no= request.getParameter("card_no"); 
                 String card_holder= request.getParameter("card_name").trim();
-                String ccv= request.getParameter("card_ccv"); 
+                String ccv= request.getParameter("card_ccv");
+                String id2=session.getAttribute("id").toString(); 
+                int id= Integer.parseInt(id2);
                 //String user_id = request.getParameter("user_ID");
                 int trip_id=Integer.parseInt(request.getParameter("trip_ID")); 
                     if(!card_holder.isEmpty() && !ccv.isEmpty() && !card_no.isEmpty())
@@ -30,7 +32,7 @@
                     boolean nameValid = card.cardValidation.isName(card_holder);
                         if( cradValid && ccvValid && nameValid ){
                         DB.user_conn  sql_Handler = new DB.user_conn();
-                        int booked = sql_Handler.bookTicket((int)(session.getAttribute("id")), trip_id);//////
+                        int booked = sql_Handler.bookTicket(id, trip_id);//////
                             if(booked>0) {//out.print("success , trip : "+trip_id+" , user : "+session.getAttribute("id").toString());
                             response.sendRedirect("successPayment.jsp");
                             }
