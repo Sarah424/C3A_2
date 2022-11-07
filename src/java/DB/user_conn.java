@@ -135,6 +135,20 @@ public class user_conn {
         }
         return  i;
     }
+    
+    public boolean isValidUser(User user) {
+        boolean isValid = false;
+        try {
+          Statement  statement = conn.createStatement();
+            resultSet = statement.executeQuery("SELECT id, password FROM user WHERE id = " + user.getId()
+                    + " AND password ='" + user.getPassword() + "'");
+            if (resultSet.next()) {
+                isValid = true;
+            }
+        } catch (SQLException ex) {
+        }
+        return isValid;
+    }
 
     //-------------------------add trip
 //        public ResultSet addTrips(String from, String to , String date ,String time, int available_seat_no) {

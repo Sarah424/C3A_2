@@ -29,7 +29,7 @@
                 
                 
                  <div class="register-div">
-        <form action="#" name="register-form" method="POST" class="register-form" >
+        <form action="HomePage.jsp" name="register-form" method="POST" class="register-form" >
 <h1>Log in to your account</h1>
 <br>
 <label for="docid" required>User ID</label>

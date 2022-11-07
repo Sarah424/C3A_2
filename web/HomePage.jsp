@@ -3,7 +3,9 @@
     Created on : Nov 2, 2022, 9:57:44 PM
     Author     : Sara
 --%>
-
+<%@page language="java"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,23 @@
         <title>Home Page</title>
         <link rel="stylesheet" href="UserStyleSheet.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <%
+        
+        String user= request.getParameter("documentid");
+        String pass= request.getParameter("password");
+        
+        DB.user_conn res = new DB.user_conn();
+        //user object
+        
+        //check user validity
+if(isValidUser(user)==true){
+
+
+        //set session id
+        session.setAttribute("id",  );
+        
+        %>
         <script>
 
 
@@ -112,7 +131,12 @@
             </footer>
         </div>
 
+<%
+    }
+else{out.print("unauthorised, pleased enter correct values");
 
+}
+%>
     </body>
 </html>
 
