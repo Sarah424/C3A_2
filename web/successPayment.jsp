@@ -22,7 +22,7 @@
         <div class="bodyDiv">
             <div class="sucMsg">
                 <p> Payment Success</p>
-                <H5>you can view your ticket in the ticket history</H5>
+                
                 <br>
                 <form method="post" action="HomePage.jsp">
                     <input type="submit" name="ok" value="OK" 
@@ -31,7 +31,7 @@
                 </form>
                 
         <% session.setAttribute("trip_id","");
-        response.sendRedirect("logout.jsp");%>
+        response.sendRedirect("Confirmation.jsp");%>
             </div>
             
         </div>
