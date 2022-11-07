@@ -61,7 +61,7 @@
                     }
             }
             else  {
-                out.print("you are not authorised ");response.sendRedirect("AvailableTrips.jsp");
+                out.print("you are not authorised ");response.sendRedirect("UserLoginPage.jsp");
             }
             
 
