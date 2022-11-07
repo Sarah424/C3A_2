@@ -45,9 +45,10 @@
         String to = request.getParameter("to");
         String date = request.getParameter("date");
         if(!from.isEmpty() && !to.isEmpty() &&!date.isEmpty() ){
-        dbConn.database_conn sql_Handler = new dbConn.database_conn();
+        DB.user_conn sql_Handler = new DB.user_conn();
         ResultSet res_set = sql_Handler.getTrips(from,to,date);
         %>
+        
 <body>
      
 

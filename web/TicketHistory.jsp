@@ -38,7 +38,7 @@ session.setAttribute("last_name", "ali");
 //session.getAttribute("id")
 //String id= "1";
  if(session.getAttribute("id") != null ){
-                    dbConn.database_conn sql_Handler = new dbConn.database_conn();// conn (folder_name.java_class_name) 
+                   DB.user_conn sql_Handler = new DB.user_conn();// conn (folder_name.java_class_name) 
                     ResultSet rsltst = sql_Handler.getUserTicketHistory(Integer.parseInt(session.getAttribute("id").toString());//result obj (to get my method, my vars from db are stored in this obj)
 
 %>
@@ -98,7 +98,7 @@ session.setAttribute("last_name", "ali");
                    
                     //get users booked tickets
                     while(rsltst.next()){
-                    dbConn.database_conn sql_Handler2 = new dbConn.database_conn();
+                    DB.user_conn sql_Handler2 = new DB.user_conn();
                     ResultSet rsl_tst = sql_Handler2.getTrip(rsltst.getInt("Trip_id"));
                     while(rsl_tst.next()){
                     %>

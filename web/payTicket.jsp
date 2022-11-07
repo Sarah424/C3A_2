@@ -29,7 +29,7 @@
                     boolean ccvValid = card.cardValidation.isCCV(ccv); 
                     boolean nameValid = card.cardValidation.isName(card_holder);
                         if( cradValid && ccvValid && nameValid ){
-                        dbConn.database_conn  sql_Handler = new dbConn.database_conn();
+                        DB.user_conn  sql_Handler = new DB.user_conn();
                         int booked = sql_Handler.bookTicket((int)(session.getAttribute("id")), trip_id);//////
                             if(booked>0) {//out.print("success , trip : "+trip_id+" , user : "+session.getAttribute("id").toString());
                             response.sendRedirect("successPayment.jsp");

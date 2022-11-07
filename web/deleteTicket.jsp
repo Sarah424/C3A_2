@@ -21,7 +21,7 @@
         int ticket_id=Integer.parseInt(ticketid);
         if(session.getAttribute("id") != null && session.getAttribute("trip_id") != null){ 
                 
-                        dbConn.database_conn  sql_Handler = new dbConn.database_conn();
+                       DB.user_conn  sql_Handler = new DB.user_conn();
                         boolean deleted = sql_Handler.deleteTicket( Integer.parseInt(session.getAttribute("id").toString()),ticket_id );
                         
                         response.sendRedirect("TicketHistory.jsp");  

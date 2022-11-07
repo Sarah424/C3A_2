@@ -1,4 +1,4 @@
-package dbConn;
+package DB;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @author atheer
  */
 //jdbc:mysql://localhost:3306/railway?useSSL=false
-public class database_conn {
+public class user_conn {
    
     String url = "jdbc:mysql://localhost:3306/railway?useSSL=false";//DB naeme
     String username= "C3A_2"; 
@@ -24,13 +24,13 @@ public class database_conn {
     ResultSet resultSet = null;
     String sqlQuery = "";
     //--------------------create connection to DB---------------------------//
-    public database_conn(){
+    public user_conn(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(url,username,password);
         }catch(SQLException e){
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(database_conn.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(user_conn.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
   
@@ -127,7 +127,7 @@ public class database_conn {
         try {
             conn.close();
         } catch (SQLException ex) {
-            Logger.getLogger(database_conn.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(user_conn.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

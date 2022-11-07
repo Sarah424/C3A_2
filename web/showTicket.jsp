@@ -41,7 +41,7 @@ page language="java"%>
             int tripID= Integer.parseInt(id_);
             session.setAttribute("trip_id", tripID);
             try {
-                dbConn.database_conn sql_Handler = new dbConn.database_conn();
+               DB.user_conn sql_Handler = new dbConn.database_conn();
                 ResultSet rsltst = sql_Handler.getTrip(tripID);
                 while(rsltst.next()){
             %>
