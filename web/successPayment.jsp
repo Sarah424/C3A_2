@@ -24,14 +24,14 @@
                 <p> Payment Success</p>
                 
                 <br>
-                <form method="post" action="HomePage.jsp">
+                <form method="post" action="TicketHistory.jsp">
                     <input type="submit" name="ok" value="OK" 
                            style="width:160px; height:40px;
                            background-color:#1A374D;font-weight:bold;color:white;border-radius: 30px 30px 30px 30px;" >
                 </form>
                 
         <% session.setAttribute("trip_id","");
-        response.sendRedirect("Confirmation.jsp");%>
+        response.sendRedirect("HomePage.jsp");%>
             </div>
             
         </div>
