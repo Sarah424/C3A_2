@@ -70,7 +70,7 @@
                 <h5 class="pay_label">Enter your card information :</h5>
                 
                 
-                <form method="post" action="payTicket.jsp?trip_id+<%=tripID%>">
+                <form method="post" action="payTicket.jsp?trip_id=<%=tripID%>">
                     <table class="pay_table">
                     <tr class="pay_header"> 
                     <th>Card Holder Name</td>

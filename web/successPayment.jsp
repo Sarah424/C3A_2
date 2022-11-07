@@ -30,7 +30,7 @@
                            background-color:#1A374D;font-weight:bold;color:white;border-radius: 30px 30px 30px 30px;" >
                 </form>
                 
-        <% session.setAttribute("trip_id","");
+        <% session.setAttribute("trip_id"," ");
         response.sendRedirect("HomePage.jsp");%>
             </div>
             
