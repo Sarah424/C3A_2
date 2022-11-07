@@ -1,5 +1,6 @@
 package DB;
 
+import Account.User;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;

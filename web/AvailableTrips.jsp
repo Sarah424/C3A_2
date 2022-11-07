@@ -31,7 +31,7 @@
         <%
         //set session attributes    
         //resultSet.getString("username")
-        session.setAttribute("id", "10");
+        //session.setAttribute("id", "10");
         session.setAttribute("first_name", "ahmed");
         session.setAttribute("last_name", "ali");
         
