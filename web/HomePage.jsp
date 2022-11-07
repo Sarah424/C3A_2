@@ -17,18 +17,22 @@
         
         <%
         
-        String user= request.getParameter("documentid");
+        String userid= request.getParameter("documentid");
+        int user_id= Integer.parseInt(userid);
         String pass= request.getParameter("password");
         
         DB.user_conn res = new DB.user_conn();
         //user object
-        
+        Account.User user= new Account.User();
+        user.setId(user_id);
+        user.setPassword(pass);
         //check user validity
-if(isValidUser(user)==true){
+        DB.user_conn sql = new DB.user_conn();
+        if(sql.isValidUser(user)){
 
 
         //set session id
-        session.setAttribute("id",  );
+        session.setAttribute("id", user_id);
         
         %>
         <script>
